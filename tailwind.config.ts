@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        display: ["'Fredoka One'", "cursive"],
+        body: ["'Nunito'", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +61,21 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Rainbow colors for letters
+        "letter-red": "hsl(var(--letter-red))",
+        "letter-orange": "hsl(var(--letter-orange))",
+        "letter-yellow": "hsl(var(--letter-yellow))",
+        "letter-green": "hsl(var(--letter-green))",
+        "letter-teal": "hsl(var(--letter-teal))",
+        "letter-blue": "hsl(var(--letter-blue))",
+        "letter-indigo": "hsl(var(--letter-indigo))",
+        "letter-purple": "hsl(var(--letter-purple))",
+        "letter-pink": "hsl(var(--letter-pink))",
+        "letter-rose": "hsl(var(--letter-rose))",
+        "letter-lime": "hsl(var(--letter-lime))",
+        "letter-cyan": "hsl(var(--letter-cyan))",
+        "letter-amber": "hsl(var(--letter-amber))",
+        "letter-sky": "hsl(var(--letter-sky))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,20 +84,12 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
