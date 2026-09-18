@@ -1,0 +1,12 @@
+Django
+django-cors-headers
+django-filter
+django-rest-framework
+djangorestframework
+djangorestframework-simplejwt
+pillow
+PyJWT
+sqlparse
+typing_extensions
+tzdata
+whitenoise

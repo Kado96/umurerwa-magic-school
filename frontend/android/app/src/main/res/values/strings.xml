@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Umurerwa</string>
+    <string name="title_activity_main">Umurerwa</string>
+    <string name="package_name">com.umurerwa.app</string>
+    <string name="custom_url_scheme">com.umurerwa.app</string>
+</resources>

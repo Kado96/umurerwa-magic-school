@@ -1,0 +1,11 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "python manage.py runserver",
+        "start": "gunicorn agashop.wsgi",
+        "migrate": "python manage.py migrate",
+        "makemigrations": "python manage.py makemigrations"
+    }
+}
