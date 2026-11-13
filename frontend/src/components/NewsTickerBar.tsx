@@ -1,4 +1,4 @@
-﻿import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { fetchApi } from "@/lib/api";
 import { Radio } from "lucide-react";
 
@@ -25,9 +25,9 @@ const NewsTickerBar = () => {
         setAnnouncements(publicOnes.length > 0 ? publicOnes : all.slice(0, 5));
       } catch {
         setAnnouncements([
-          { id: "1", title: "Rentrée académique", content: "Bienvenue à Umurerwa Academy — Année Scolaire 2025-2026", target_role: "ALL" },
-          { id: "2", title: "Admissions", content: "Inscriptions ouvertes pour tous les niveaux de la Maternelle à l'Université", target_role: "ALL" },
-          { id: "3", title: "Examens", content: "Les résultats du premier trimestre seront publiés le 15 Novembre", target_role: "ALL" },
+          { id: "1", title: "Rentrée scolaire", content: "Bienvenue à Umurerwa School — Année Scolaire 2025-2026", target_role: "ALL" },
+          { id: "2", title: "Inscriptions", content: "Inscriptions ouvertes pour la Crèche, la Maternelle et l'École Primaire", target_role: "ALL" },
+          { id: "3", title: "Activités", content: "Découvrez nos ateliers d'éveil, clubs artistiques et cours de renforcement", target_role: "ALL" },
         ]);
       }
     };

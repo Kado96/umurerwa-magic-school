@@ -10,8 +10,8 @@ const Footer: React.FC = () => {
     fetchApi("/settings/1/").then((data) => setSettings(data)).catch(() => {});
   }, []);
 
-  const tagline = settings?.footer_tagline || "L'excellence académique & l'épanouissement de chaque élève et étudiant. 🌟";
-  const copyright = settings?.footer_copyright || "pour Umurerwa Academy";
+  const tagline = settings?.footer_tagline || "L'éveil, l'apprentissage et l'excellence de la crèche au primaire. 🌟";
+  const copyright = settings?.footer_copyright || "pour Umurerwa School";
 
   return (
     <footer className="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">

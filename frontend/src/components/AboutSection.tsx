@@ -1,41 +1,41 @@
-﻿import React, { useState, useEffect, useRef } from "react";
-import { GraduationCap, Building2, BookOpen, Microscope, Sparkles, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import { Baby, Sparkles, BookOpen, Heart, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { fetchApi } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 
 const defaultFaculties = [
   {
-    slug: "universite",
-    icon: GraduationCap,
-    title: "Enseignement Supérieur & Facultés",
-    subtitle: "Licence, Master & Doctorat",
-    desc: "Formations universitaires diplômantes en Informatique, Gestion, Droit et Sciences Santé.",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop"
+    slug: "creche",
+    icon: Baby,
+    title: "Crèche & Garderie",
+    subtitle: "Petite Enfance (3 mois - 2 ans)",
+    desc: "Accueil bienveillant des tout-petits, sécurité maximale, stimulation sensorielle et suivi attentif du rythme de chaque bébé.",
+    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop"
   },
   {
-    slug: "lycee",
-    icon: Building2,
-    title: "Lycée & Enseignement Secondaire",
-    subtitle: "Sections Générales & Techniques",
-    desc: "Préparation rigoureuse aux examens d'État avec laboratoires et salles informatiques dédiées.",
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop"
+    slug: "maternelle",
+    icon: Heart,
+    title: "École Maternelle",
+    subtitle: "Petite, Moyenne & Grande Section",
+    desc: "Développement du langage, socialisation, motricité fine et éveil à la curiosité dans un cadre ludique et joyeux.",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop"
   },
   {
     slug: "primaire",
     icon: BookOpen,
     title: "École Primaire & Fondamentale",
-    subtitle: "Acquisition des fondamentaux",
-    desc: "Programme d'éveil aux sciences, langues et calcul dans une ambiance stimulante.",
+    subtitle: "De la 1ère à la 6ème année",
+    desc: "Maîtrise solide de la lecture, du calcul, des sciences et des langues, préparant au certificat de fin d'études primaires.",
     image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop"
   },
   {
-    slug: "maternelle",
-    icon: Microscope,
-    title: "Maternelle & Éveil de l'Enfance",
-    subtitle: "Développement & Socialisation",
-    desc: "Espaces ludiques et sécurisés pour accompagner le développement psychomoteur et créatif.",
-    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop"
+    slug: "activites",
+    icon: Sparkles,
+    title: "Activités & Périscolaire",
+    subtitle: "Éveil Artistique, Sportif & Numérique",
+    desc: "Espaces ludiques, ateliers créatifs, musique, sports et initiation numérique adaptée pour cultiver les talents.",
+    image: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=800&auto=format&fit=crop"
   }
 ];
 
@@ -62,16 +62,16 @@ const AboutSection: React.FC = () => {
 
   const faculties = [
     {
-      slug: "universite",
-      icon: GraduationCap,
+      slug: "creche",
+      icon: Baby,
       title: settings?.card_1_title || defaultFaculties[0].title,
       subtitle: settings?.card_1_subtitle || defaultFaculties[0].subtitle,
       desc: settings?.card_1_desc || defaultFaculties[0].desc,
       image: settings?.carousel_img_1 || defaultFaculties[0].image
     },
     {
-      slug: "lycee",
-      icon: Building2,
+      slug: "maternelle",
+      icon: Heart,
       title: settings?.card_2_title || defaultFaculties[1].title,
       subtitle: settings?.card_2_subtitle || defaultFaculties[1].subtitle,
       desc: settings?.card_2_desc || defaultFaculties[1].desc,
@@ -86,8 +86,8 @@ const AboutSection: React.FC = () => {
       image: settings?.carousel_img_3 || defaultFaculties[2].image
     },
     {
-      slug: "maternelle",
-      icon: Microscope,
+      slug: "activites",
+      icon: Sparkles,
       title: settings?.card_4_title || defaultFaculties[3].title,
       subtitle: settings?.card_4_subtitle || defaultFaculties[3].subtitle,
       desc: settings?.card_4_desc || defaultFaculties[3].desc,
@@ -101,13 +101,13 @@ const AboutSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <span className="text-amber-400 font-body font-bold text-xs uppercase tracking-widest bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full inline-block mb-3">
-              Notre Structure Académique 🏛️
+              Notre Structure Pédagogique 🎒
             </span>
             <h2 className="font-display text-3xl md:text-5xl font-extrabold text-white">
-              {settings?.about_title || "Un cursus complet pour chaque étape de la vie"}
+              {settings?.about_title || "Un cursus adapté à chaque étape de l'enfance"}
             </h2>
             <p className="text-slate-300 font-body text-base md:text-lg max-w-2xl mt-3">
-              {settings?.about_description || "De la petite enfance aux diplômes universitaires, Umurerwa Academy met son corps professoral et ses infrastructures de pointe au service de la réussite académique et professionnelle."}
+              {settings?.about_description || "De la crèche à l'école primaire, Umurerwa School met son équipe pédagogique attentionnée et ses infrastructures modernes au service du développement harmonieux de votre enfant."}
             </p>
           </div>
 

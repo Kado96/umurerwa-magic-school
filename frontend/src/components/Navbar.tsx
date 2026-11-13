@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import RainbowSchoolName from "./RainbowSchoolName";
 import { Menu, X, LogIn, Sparkles, Phone, Mail, MapPin } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
             </span>
             <span className="flex items-center gap-1.5 hover:text-amber-400 transition-colors">
               <Mail className="w-3.5 h-3.5 text-amber-400" />
-              contact@umurerwa-academy.bi
+              contact@umurerwaschool.bi
             </span>
             <span className="flex items-center gap-1.5 text-slate-400">
               <MapPin className="w-3.5 h-3.5 text-amber-400" />

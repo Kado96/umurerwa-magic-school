@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GraduationCap } from "lucide-react";
 import { fetchApi } from "@/lib/api";
 
@@ -22,8 +22,8 @@ const RainbowSchoolName: React.FC<RainbowSchoolNameProps> = ({ size = "lg" }) =>
       .catch(() => {});
   }, []);
 
-  const schoolName = settings?.school_name || "UMURERWA ACADEMY";
-  const slogan = settings?.slogan || "Complexe Scolaire & Universitaire";
+  const schoolName = settings?.school_name || "UMURERWA SCHOOL";
+  const slogan = settings?.slogan || "École Primaire, Maternelle & Crèche";
   const logoUrl = settings?.logo;
 
   return (

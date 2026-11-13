@@ -185,51 +185,51 @@ class Enrollment(models.Model):
 
 class SiteSettings(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    school_name = models.CharField(max_length=255, default="UMURERWA ACADEMY")
-    slogan = models.CharField(max_length=255, default="Complexe Scolaire & Universitaire")
-    hero_title = models.CharField(max_length=255, default="L'excellence académique de la maternelle à l'université.")
-    hero_description = models.TextField(default="Umurerwa Academy offre un parcours d'études complet, rigoureux et moderne. De la petite enfance aux diplômes universitaires, nous formons les leaders et chercheurs de demain.")
+    school_name = models.CharField(max_length=255, default="UMURERWA SCHOOL")
+    slogan = models.CharField(max_length=255, default="École Primaire, Maternelle & Crèche")
+    hero_title = models.CharField(max_length=255, default="L'excellence éducative de la crèche à l'école primaire.")
+    hero_description = models.TextField(default="Umurerwa School offre un parcours d'éveil et d'apprentissage complet, bienveillant et stimulant. De la crèche au certificat de fin de primaire, nous accompagnons chaque enfant vers l'épanouissement et la réussite.")
     
     # 3 Badges d'accueil configurables
-    badge_1_text = models.CharField(max_length=100, default="LMD & Cycles Homologués")
-    badge_2_text = models.CharField(max_length=100, default="Campus & Amphithéâtres")
-    badge_3_text = models.CharField(max_length=100, default="Recherche & Innovation")
+    badge_1_text = models.CharField(max_length=100, default="Programme Fondamental Homologué")
+    badge_2_text = models.CharField(max_length=100, default="Cadre Sécurisé & Épanouissant")
+    badge_3_text = models.CharField(max_length=100, default="Éveil & Pédagogie Active")
 
     # Section "Notre Structure Académique" configurables
-    about_title = models.CharField(max_length=255, default="Un cursus complet pour chaque étape de la vie")
-    about_description = models.TextField(default="De la petite enfance aux diplômes universitaires, Umurerwa Academy met son corps professoral et ses infrastructures de pointe au service de la réussite académique et professionnelle.")
+    about_title = models.CharField(max_length=255, default="Un cursus adapté à chaque étape de l'enfance")
+    about_description = models.TextField(default="De la crèche à l'école primaire, Umurerwa School met son équipe pédagogique attentionnée et ses infrastructures modernes au service du développement harmonieux de votre enfant.")
     
-    # Carte Cursus 1 (Supérieur)
-    card_1_title = models.CharField(max_length=150, default="Enseignement Supérieur & Facultés")
-    card_1_subtitle = models.CharField(max_length=150, default="Licence, Master & Doctorat")
-    card_1_desc = models.TextField(default="Formations universitaires diplômantes en Informatique, Gestion, Droit et Sciences Santé.")
+    # Carte Cursus 1 (Crèche & Garderie)
+    card_1_title = models.CharField(max_length=150, default="Crèche & Garderie")
+    card_1_subtitle = models.CharField(max_length=150, default="Petite Enfance (3 mois - 2 ans)")
+    card_1_desc = models.TextField(default="Accueil bienveillant des tout-petits, sécurité maximale, stimulation sensorielle et suivi attentif du rythme de chaque bébé.")
 
-    # Carte Cursus 2 (Lycée)
-    card_2_title = models.CharField(max_length=150, default="Lycée & Enseignement Secondaire")
-    card_2_subtitle = models.CharField(max_length=150, default="Sections Générales & Techniques")
-    card_2_desc = models.TextField(default="Préparation rigoureuse aux examens d'État avec laboratoires et salles informatiques dédiées.")
+    # Carte Cursus 2 (Maternelle)
+    card_2_title = models.CharField(max_length=150, default="École Maternelle")
+    card_2_subtitle = models.CharField(max_length=150, default="Petite, Moyenne & Grande Section")
+    card_2_desc = models.TextField(default="Développement du langage, socialisation, motricité fine et éveil à la curiosité dans un cadre ludique et joyeux.")
 
     # Carte Cursus 3 (Primaire)
     card_3_title = models.CharField(max_length=150, default="École Primaire & Fondamentale")
-    card_3_subtitle = models.CharField(max_length=150, default="Acquisition des fondamentaux")
-    card_3_desc = models.TextField(default="Programme d'éveil aux sciences, langues et calcul dans une ambiance stimulante.")
+    card_3_subtitle = models.CharField(max_length=150, default="De la 1ère à la 6ème année")
+    card_3_desc = models.TextField(default="Maîtrise solide de la lecture, du calcul, des sciences et des langues, préparant au certificat de fin d'études primaires.")
 
-    # Carte Cursus 4 (Maternelle)
-    card_4_title = models.CharField(max_length=150, default="Maternelle & Éveil de l'Enfance")
-    card_4_subtitle = models.CharField(max_length=150, default="Développement & Socialisation")
-    card_4_desc = models.TextField(default="Espaces ludiques et sécurisés pour accompagner le développement psychomoteur et créatif.")
+    # Carte Cursus 4 (Activités & Périscolaire)
+    card_4_title = models.CharField(max_length=150, default="Activités & Périscolaire")
+    card_4_subtitle = models.CharField(max_length=150, default="Éveil Artistique, Sportif & Numérique")
+    card_4_desc = models.TextField(default="Espaces ludiques, ateliers créatifs, musique, sports et initiation numérique adaptée pour cultiver les talents.")
 
     # Section "Nos Activités & Épanouissement" configurables
     activities_title = models.CharField(max_length=255, default="Nos Activités & Épanouissement 🎨")
-    activities_description = models.TextField(default="Un programme complet favorisant la créativité, l'esprit d'équipe et la passion d'apprendre.")
+    activities_description = models.TextField(default="Un programme complet favorisant la créativité, l'esprit d'équipe et la joie d'apprendre.")
 
     # 6 Blocs d'activités
-    act_1_title = models.CharField(max_length=100, default="Lecture & Recherches")
-    act_2_title = models.CharField(max_length=100, default="Mathématiques & Sciences")
-    act_3_title = models.CharField(max_length=100, default="Arts & Culture")
-    act_4_title = models.CharField(max_length=100, default="Musique & Conférences")
-    act_5_title = models.CharField(max_length=100, default="Sports & Compétitions")
-    act_6_title = models.CharField(max_length=100, default="Langues & International")
+    act_1_title = models.CharField(max_length=100, default="Lecture & Contes")
+    act_2_title = models.CharField(max_length=100, default="Éveil Scientifique & Calcul")
+    act_3_title = models.CharField(max_length=100, default="Arts Plastiques & Dessin")
+    act_4_title = models.CharField(max_length=100, default="Musique & Chants")
+    act_5_title = models.CharField(max_length=100, default="Jeux & Psychomotricité")
+    act_6_title = models.CharField(max_length=100, default="Langues & Découverte")
 
     # Galerie & Défilement Infini (6 photos + titres)
     gallery_title = models.CharField(max_length=255, default="Galerie de la Vie Scolaire (Défilement Infini)")
@@ -237,29 +237,29 @@ class SiteSettings(models.Model):
     gallery_caption_1 = models.CharField(max_length=150, default="Bibliothèque & Lecture")
 
     gallery_img_2 = models.TextField(default="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop")
-    gallery_caption_2 = models.CharField(max_length=150, default="Laboratoire & Sciences")
+    gallery_caption_2 = models.CharField(max_length=150, default="Éveil & Sciences Découverte")
 
     gallery_img_3 = models.TextField(default="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=600&auto=format&fit=crop")
-    gallery_caption_3 = models.CharField(max_length=150, default="Atelier Peinture & Arts")
+    gallery_caption_3 = models.CharField(max_length=150, default="Atelier Peinture & Créativité")
 
     gallery_img_4 = models.TextField(default="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop")
-    gallery_caption_4 = models.CharField(max_length=150, default="Activités Sportives")
+    gallery_caption_4 = models.CharField(max_length=150, default="Activités Psychomotrices & Jeux")
 
     gallery_img_5 = models.TextField(default="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=600&auto=format&fit=crop")
-    gallery_caption_5 = models.CharField(max_length=150, default="Travaux en groupe & Projets")
+    gallery_caption_5 = models.CharField(max_length=150, default="Travaux en groupe & Projets d'Éveil")
 
     gallery_img_6 = models.TextField(default="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=600&auto=format&fit=crop")
-    gallery_caption_6 = models.CharField(max_length=150, default="Vie du Campus & Événements")
+    gallery_caption_6 = models.CharField(max_length=150, default="Vie Scolaire & Fêtes de l'École")
 
     # Images du carrousel
-    carousel_img_1 = models.TextField(default="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop")
-    carousel_caption_1 = models.CharField(max_length=150, default="Campus Universitaire & Recherche")
-    carousel_img_2 = models.TextField(default="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1200&auto=format&fit=crop")
-    carousel_caption_2 = models.CharField(max_length=150, default="Facultés & Salles d'Amphithéâtre")
-    carousel_img_3 = models.TextField(default="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200&auto=format&fit=crop")
-    carousel_caption_3 = models.CharField(max_length=150, default="Maternelle, Primaire & Secondaire")
-    carousel_img_4 = models.TextField(default="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200&auto=format&fit=crop")
-    carousel_caption_4 = models.CharField(max_length=150, default="Laboratoires Informatiques & Innovation")
+    carousel_img_1 = models.TextField(default="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200&auto=format&fit=crop")
+    carousel_caption_1 = models.CharField(max_length=150, default="Crèche & Petite Enfance")
+    carousel_img_2 = models.TextField(default="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop")
+    carousel_caption_2 = models.CharField(max_length=150, default="Maternelle & Éveil Sensoriel")
+    carousel_img_3 = models.TextField(default="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop")
+    carousel_caption_3 = models.CharField(max_length=150, default="École Primaire & Fondamentale")
+    carousel_img_4 = models.TextField(default="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200&auto=format&fit=crop")
+    carousel_caption_4 = models.CharField(max_length=150, default="Ateliers Créatifs & Réussite")
 
     # Personnalisation des polices et couleurs
     title_font_size = models.IntegerField(default=52) # Taille de police du titre en px
@@ -272,11 +272,11 @@ class SiteSettings(models.Model):
     hero_image = models.TextField(null=True, blank=True)
     
     # Contact Info & Pied de Page (Footer)
-    footer_tagline = models.CharField(max_length=255, default="L'excellence académique & l'épanouissement de chaque élève et étudiant. 🌟")
-    footer_copyright = models.CharField(max_length=255, default="pour Umurerwa Academy")
+    footer_tagline = models.CharField(max_length=255, default="L'éveil, l'apprentissage et l'excellence de la crèche au primaire. 🌟")
+    footer_copyright = models.CharField(max_length=255, default="pour Umurerwa School")
     address = models.CharField(max_length=255, default="Bujumbura, Burundi")
     phone = models.CharField(max_length=50, default="+257 68 00 00 00")
-    email = models.EmailField(default="contact@umurerwa-academy.bi")
+    email = models.EmailField(default="contact@umurerwaschool.bi")
 
     def save(self, *args, **kwargs):
         if not self.pk and SiteSettings.objects.exists():

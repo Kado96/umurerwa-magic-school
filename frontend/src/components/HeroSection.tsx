@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { Award, ArrowRight, BookOpen, Landmark, ChevronLeft, ChevronRight, GraduationCap } from "lucide-react";
+import { Award, ArrowRight, BookOpen, Heart, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { fetchApi } from "@/lib/api";
 
 const defaultCarouselImages = [
   {
-    url: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop",
-    caption: "Campus Universitaire & Recherche",
-    badge: "Enseignement Supérieur"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1200&auto=format&fit=crop",
-    caption: "Facultés & Salles d'Amphithéâtre",
-    badge: "Excellence Académique"
-  },
-  {
     url: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200&auto=format&fit=crop",
-    caption: "Maternelle, Primaire & Secondaire",
-    badge: "Parcours Scolaire Complet"
+    caption: "Crèche & Petite Enfance",
+    badge: "Crèche & Garderie"
   },
   {
-    url: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200&auto=format&fit=crop",
-    caption: "Laboratoires Informatiques & Innovation",
-    badge: "Technologie & Futur"
+    url: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop",
+    caption: "Maternelle & Éveil Sensoriel",
+    badge: "École Maternelle"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
+    caption: "École Primaire & Fondamentale",
+    badge: "École Primaire"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200&auto=format&fit=crop",
+    caption: "Ateliers Créatifs & Réussite",
+    badge: "Activités & Éveil"
   }
 ];
 
@@ -39,22 +39,22 @@ const HeroSection: React.FC = () => {
     {
       url: settings?.carousel_img_1 || defaultCarouselImages[0].url,
       caption: settings?.carousel_caption_1 || defaultCarouselImages[0].caption,
-      badge: "Enseignement Supérieur"
+      badge: "Crèche & Garderie"
     },
     {
       url: settings?.carousel_img_2 || defaultCarouselImages[1].url,
       caption: settings?.carousel_caption_2 || defaultCarouselImages[1].caption,
-      badge: "Excellence Académique"
+      badge: "École Maternelle"
     },
     {
       url: settings?.carousel_img_3 || defaultCarouselImages[2].url,
       caption: settings?.carousel_caption_3 || defaultCarouselImages[2].caption,
-      badge: "Parcours Scolaire Complet"
+      badge: "École Primaire"
     },
     {
       url: settings?.carousel_img_4 || defaultCarouselImages[3].url,
       caption: settings?.carousel_caption_4 || defaultCarouselImages[3].caption,
-      badge: "Technologie & Futur"
+      badge: "Activités & Éveil"
     }
   ];
 
@@ -82,7 +82,7 @@ const HeroSection: React.FC = () => {
           <div className="lg:col-span-6 space-y-6 text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/10 text-blue-900 font-body font-bold text-xs uppercase tracking-wider">
               <Award className="w-4 h-4 text-blue-700" />
-              <span>{settings?.slogan || "Complexe d'Enseignement Général & Supérieur"}</span>
+              <span>{settings?.slogan || "École Primaire, Maternelle & Crèche"}</span>
             </div>
 
             <h1 
@@ -90,7 +90,7 @@ const HeroSection: React.FC = () => {
               style={{ fontSize: settings?.title_font_size ? `${settings.title_font_size}px` : undefined }}
             >
               {settings?.hero_title || (
-                <>L'excellence académique de la <span className="text-blue-800">maternelle</span> à l'<span className="text-indigo-700">université</span>.</>
+                <>L'excellence éducative de la <span className="text-amber-600">crèche</span> à l'<span className="text-blue-800">école primaire</span>.</>
               )}
             </h1>
 
@@ -98,7 +98,7 @@ const HeroSection: React.FC = () => {
               className="text-slate-600 font-body leading-relaxed"
               style={{ fontSize: settings?.body_font_size ? `${settings.body_font_size}px` : undefined }}
             >
-              {settings?.hero_description || "Umurerwa Academy offre un parcours d'études complet, rigoureux et moderne. De la petite enfance aux diplômes universitaires, nous formons les leaders et chercheurs de demain."}
+              {settings?.hero_description || "Umurerwa School offre un parcours d'éveil et d'apprentissage complet, bienveillant et stimulant. De la crèche au certificat de fin de primaire, nous accompagnons chaque enfant vers l'épanouissement et la réussite."}
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -107,29 +107,29 @@ const HeroSection: React.FC = () => {
                 className="inline-flex items-center gap-3 bg-blue-900 hover:bg-blue-800 text-white font-body font-bold px-8 py-4 rounded-2xl text-base transition-all shadow-md hover:shadow-lg"
                 style={{ backgroundColor: settings?.primary_color || undefined }}
               >
-                Déposer une Candidature <ArrowRight className="w-5 h-5 text-amber-300" />
+                Inscrire mon enfant <ArrowRight className="w-5 h-5 text-amber-300" />
               </a>
               <a
                 href="#apropos"
                 className="inline-flex items-center gap-2 bg-slate-200/80 hover:bg-slate-300/80 text-slate-800 font-body font-bold px-6 py-4 rounded-2xl text-base transition-all"
               >
-                Découvrir nos filières
+                Découvrir nos sections
               </a>
             </div>
 
             {/* Badges institutionnels */}
             <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200">
               <div className="flex items-center gap-2.5">
-                <GraduationCap className="w-5 h-5 text-blue-800 shrink-0" />
-                <span className="font-body text-xs font-bold text-slate-700">{settings?.badge_1_text || "LMD & Cycles Homologués"}</span>
+                <Heart className="w-5 h-5 text-rose-600 shrink-0" />
+                <span className="font-body text-xs font-bold text-slate-700">{settings?.badge_1_text || "Programme Homologué"}</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Landmark className="w-5 h-5 text-indigo-700 shrink-0" />
-                <span className="font-body text-xs font-bold text-slate-700">{settings?.badge_2_text || "Campus & Amphithéâtres"}</span>
+                <Sparkles className="w-5 h-5 text-amber-600 shrink-0" />
+                <span className="font-body text-xs font-bold text-slate-700">{settings?.badge_2_text || "Cadre Sécurisé & Éveil"}</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <BookOpen className="w-5 h-5 text-emerald-700 shrink-0" />
-                <span className="font-body text-xs font-bold text-slate-700">{settings?.badge_3_text || "Recherche & Innovation"}</span>
+                <span className="font-body text-xs font-bold text-slate-700">{settings?.badge_3_text || "Pédagogie Active"}</span>
               </div>
             </div>
           </div>

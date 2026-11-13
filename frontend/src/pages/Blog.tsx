@@ -1,4 +1,4 @@
-﻿import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { fetchApi } from "@/lib/api";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -41,29 +41,29 @@ const BlogPage = () => {
         setArticles([
           { 
             id: "1", 
-            title: "Inauguration du Nouveau Laboratoire STEM & Recherche", 
-            content: "L'Umurerwa Academy vient d'inaugurer son tout nouveau complexe de laboratoires doté d'équipements de pointe pour le secondaire et le supérieur. Un espace innovant pour former les chercheurs de demain.", 
+            title: "Inauguration du Nouvel Espace d'Éveil Sensoriel & Bibliothèque", 
+            content: "Umurerwa School vient d'inaugurer son nouvel espace d'éveil et de lecture pour les enfants de la crèche et de la maternelle. Un environnement stimulant et coloré pour cultiver la curiosité dès le plus jeune âge.", 
             target_role: "ALL", 
             created_at: new Date().toISOString() 
           },
           { 
             id: "2", 
-            title: "Rentrée Académique & Inscriptions 2025-2026", 
-            content: "Les inscriptions universitaires, lycéennes et fondamentales sont désormais ouvertes. Rejoignez une institution d'excellence et découvrez nos nouveaux programmes.", 
+            title: "Rentrée Scolaire & Inscriptions Ouvertes 2025-2026", 
+            content: "Les inscriptions pour la Crèche, la Maternelle et l'École Primaire sont ouvertes. Venez découvrir notre équipe passionnée et notre cadre d'apprentissage bienveillant.", 
             target_role: "ALL", 
             created_at: new Date().toISOString() 
           },
           { 
             id: "3", 
-            title: "Célébration de la Journée de l'Excellence Académique", 
-            content: "Retour en images sur la grande cérémonie de remise des distinctions aux étudiants et élèves qui se sont illustrés par leurs performances scientifiques et artistiques.", 
+            title: "Grande Journée Pédagogique & Fête des Enfants", 
+            content: "Retour en images sur les ateliers artistiques, les représentations de contes et les jeux de motricité réalisés par nos élèves du primaire et de la maternelle.", 
             target_role: "ALL", 
             created_at: new Date().toISOString() 
           },
           { 
             id: "4", 
-            title: "Partenariats Internationaux & Échanges Universitaires", 
-            content: "Signature de nouvelles conventions académiques permettant à nos étudiants en Licence et Master d'effectuer des semestres d'échange à l'étranger.", 
+            title: "Atelier Jardinage & Découverte de la Nature", 
+            content: "Nos écoliers du primaire ont planté leurs premières pousses dans le jardin potager pédagogique de l'école dans le cadre du projet d'éveil aux sciences du vivant.", 
             target_role: "ALL", 
             created_at: new Date().toISOString() 
           }
@@ -93,13 +93,13 @@ const BlogPage = () => {
       <main className="flex-1 container mx-auto px-4 md:px-8 py-12">
         <div className="max-w-4xl mx-auto text-center mb-12 space-y-4">
           <Badge className="bg-amber-500/20 text-amber-400 border border-amber-500/30 px-4 py-1.5 text-xs uppercase tracking-widest font-body">
-            <Sparkles className="w-3.5 h-3.5 mr-1.5 inline" /> Journal & Actualités Officiels
+            <Sparkles className="w-3.5 h-3.5 mr-1.5 inline" /> Journal & Actualités de l'École
           </Badge>
           <h1 className="text-4xl md:text-6xl font-display text-white font-bold tracking-tight">
-            Les Actualités d'Umurerwa Academy
+            Les Actualités d'Umurerwa School
           </h1>
           <p className="font-body text-slate-300 text-lg md:text-xl max-w-2xl mx-auto font-light">
-            Découvrez les projets, événements et réussites de notre complexe scolaire & universitaire.
+            Découvrez la vie de notre école, les projets éducatifs et les moments forts de la crèche au primaire.
           </p>
         </div>
 

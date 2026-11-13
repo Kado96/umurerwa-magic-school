@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  X, GraduationCap, Building2, BookOpen, Microscope,
+  X, Baby, Heart, BookOpen, Sparkles,
   CheckCircle2, Clock, Users, Award, ChevronRight,
   BookMarked, FlaskConical, Globe, Music, Dumbbell, Palette,
   Star, ArrowRight
@@ -32,101 +32,101 @@ export interface ProgramArticle {
 const articles: Record<string, ProgramArticle> = {
   "0": {
     id: "0",
-    icon: GraduationCap,
-    badge: "Enseignement Supérieur",
-    title: "Université & Facultés",
-    subtitle: "Licence · Master · Doctorat",
-    tagline: "Formez-vous aux plus hauts standards académiques, au coeur de l'Afrique.",
-    heroColor: "from-blue-900 via-blue-800 to-indigo-900",
-    accentColor: "blue",
+    icon: Baby,
+    badge: "Crèche & Garderie",
+    title: "Crèche & Garderie",
+    subtitle: "Petite Enfance (3 mois - 2 ans)",
+    tagline: "Un cocon d'amour, de sécurité et d'éveil pour les tout-petits.",
+    heroColor: "from-amber-700 via-amber-800 to-orange-900",
+    accentColor: "amber",
     overview:
-      "La branche universitaire d'Umurerwa Academy est un établissement d'enseignement supérieur reconnu, proposant des formations diplômantes de niveau LMD (Licence - Master - Doctorat) dans les domaines des sciences, du droit, de la gestion, de l'ingénierie et des technologies de l'information. Notre corps professoral composé d'experts nationaux et internationaux garantit une formation rigoureuse, ancrée dans les réalités africaines et ouverte sur le monde.",
+      "La crèche d'Umurerwa School est un lieu chaleureux et ultra-sécurisé pensé pour le bien-être et le rythme des nourrissons et tout-petits. Notre personnel formé en puériculture et petite enfance accompagne chaque enfant avec tendresse, douceur et attention personnalisée.",
     highlights: [
-      "Formations LMD accréditées par le Ministère de l'Éducation Supérieure",
-      "Laboratoires de recherche et ateliers technologiques de pointe",
-      "Partenariats avec des universités européennes et africaines",
-      "Programme d'insertion professionnelle et stage en entreprise",
-      "Bibliothèque universitaire avec ressources numériques 24h/24",
+      "Éducatrices et puéricultrices diplômées en petite enfance",
+      "Dortoirs calmes, climatisés et respectant le rythme de sommeil de chaque bébé",
+      "Jeux d'éveil sensoriel, motricité libre et tapis de découverte",
+      "Hygiène irréprochable et protocoles pédiatriques stricts",
+      "Cahier de liaison quotidien partagé avec les parents",
     ],
     details: {
-      duration: "3 à 8 ans selon le cycle",
-      students: "500+ étudiants universitaires",
-      diplomas: ["Licence (Bac+3)", "Master (Bac+5)", "Doctorat (Bac+8)"],
-      languages: ["Français", "Anglais", "Kirundi"],
+      duration: "Dès 3 mois",
+      students: "60 tout-petits",
+      diplomas: ["Carnet d'éveil personnalisé", "Passage en Maternelle"],
+      languages: ["Français", "Kirundi"],
     },
     sections: [
       {
-        title: "Facultés disponibles",
+        title: "Éveil sensoriel et motricité",
         content:
-          "Sciences Informatiques & Intelligence Artificielle, Gestion des Entreprises & Finance, Droit & Sciences Politiques, Sciences de la Santé & Médecine, Sciences de l'Ingénieur, Communication & Journalisme. Chaque faculté dispose de son propre laboratoire, amphithéâtre et espace de coworking étudiant.",
+          "Nous favorisons la motricité libre, la découverte des textures, les comptines chantées et les premières explorations sécurisées. Les tout-petits évoluent dans un espace adapté à leur rythme de développement.",
       },
       {
-        title: "Recherche & Innovation",
+        title: "Sécurité & Bienveillance",
         content:
-          "Umurerwa Academy encourage la recherche appliquée à travers des programmes de bourses, des incubateurs de startups étudiantes et des partenariats avec des organisations internationales. Chaque année, nos meilleurs mémoires font l'objet de publications scientifiques.",
+          "Chaque bébé bénéficie d'une attention individualisée pour ses repas, ses siestes et ses moments de jeu. Les espaces sont conçus sans danger et désinfectés quotidiennement.",
       },
       {
-        title: "Vie universitaire",
+        title: "Transition vers la Maternelle",
         content:
-          "Résidences universitaires, restaurant académique, associations d'étudiants, clubs culturels, sportifs et scientifiques. Des événements de networking permettent aux étudiants de rencontrer des professionnels et des entrepreneurs burundais et de la région.",
+          "Dès l'âge de 2 ans, des activités passerelles sont proposées pour familiariser l'enfant avec les repères de la maternelle en douceur.",
       },
     ],
-    cta: "Déposer une demande d'admission",
+    cta: "Inscrire mon enfant à la crèche",
   },
   "1": {
     id: "1",
-    icon: Building2,
-    badge: "Lycée & Secondaire",
-    title: "Lycée & Enseignement Secondaire",
-    subtitle: "Sections Générales · Techniques · Professionnelles",
-    tagline: "Une préparation solide aux examens d'État et à l'enseignement supérieur.",
-    heroColor: "from-indigo-900 via-indigo-800 to-violet-900",
-    accentColor: "indigo",
+    icon: Heart,
+    badge: "École Maternelle",
+    title: "École Maternelle",
+    subtitle: "Petite, Moyenne & Grande Section (2 - 6 ans)",
+    tagline: "Un espace de tendresse, de jeu et de découverte pour les jeunes enfants.",
+    heroColor: "from-rose-800 via-rose-700 to-pink-900",
+    accentColor: "rose",
     overview:
-      "Le lycée Umurerwa Academy propose un enseignement secondaire d'excellence en sections générales (sciences, lettres, économie), techniques et professionnelles. Avec des laboratoires équipés, des salles informatiques et des enseignants qualifiés, nos élèves atteignent des taux de réussite aux examens d'État parmi les plus élevés de la région.",
+      "La maternelle Umurerwa School est un espace pensé pour accueillir les enfants de 2 à 6 ans dans les meilleures conditions d'éveil et d'épanouissement. Nos éducatrices spécialisées accompagnent chaque enfant dans son rythme propre, en favorisant le jeu libre, la découverte sensorielle et les premières interactions sociales positives.",
     highlights: [
-      "Taux de réussite supérieur à 92% aux examens nationaux d'État",
-      "Salles informatiques et laboratoires de chimie/physique/biologie",
-      "Classes de soutien et tutorat personnalisé",
-      "Orientation scolaire et bilan professionnel",
-      "Partenariats avec les meilleures universités pour l'orientation",
+      "Encadrantes diplômées en petite enfance et éducation préscolaire",
+      "Espaces de jeux intérieurs et extérieurs sécurisés et stimulants",
+      "Éveil musical, artistique et moteur intégré au quotidien",
+      "Liaison régulière avec les familles (carnets, réunions mensuelles)",
+      "Repas et sieste adaptés à chaque tranche d'âge",
     ],
     details: {
-      duration: "3 à 4 ans (Secondaire 1 à 4)",
-      students: "800+ élèves lycéens",
-      diplomas: ["Diplôme d'État (Bac)", "Brevet de Technicien", "CAP Professionnel"],
-      languages: ["Français", "Anglais", "Kirundi"],
+      duration: "3 à 4 ans (Petite, Moyenne, Grande section)",
+      students: "200+ enfants",
+      diplomas: ["Attestation de Grande Section", "Préparation au CP certifiée"],
+      languages: ["Français", "Kirundi", "Initiation Anglais"],
     },
     sections: [
       {
-        title: "Sections proposées",
+        title: "Notre pédagogie d'éveil",
         content:
-          "Section Scientifique (Mathématiques, Sciences Physiques, Sciences Naturelles), Section Littéraire (Littérature, Philosophie, Histoire-Géo), Section Économique (Gestion, Commerce, Comptabilité), Section Technique Informatique, Section Technique Électronique.",
+          "Inspirée des meilleures pratiques Montessori et des pédagogies actives, notre approche place l'enfant au centre de ses apprentissages. Les coins jeux, les ateliers sensoriels et les projets collectifs permettent aux enfants d'apprendre en faisant, à leur propre rythme.",
       },
       {
-        title: "Préparation aux examens d'État",
+        title: "Développement psychomoteur",
         content:
-          "Des sessions intensives de révision, des banques de sujets corrigés et un accompagnement individualisé par les professeurs titulaires assurent à chaque élève les meilleures chances de succès. Les classes de Terminale bénéficient de planning de révision structuré sur toute l'année.",
+          "Séances de psychomotricité hebdomadaires, parcours moteurs adaptés, ateliers graphisme et pré-écriture, activités de manipulation et de motricité fine. Chaque compétence est travaillée progressivement avec des outils adaptés à l'âge.",
       },
       {
-        title: "Activités parascolaires",
+        title: "Transition vers le primaire",
         content:
-          "Clubs de débat, olympiades scientifiques et mathématiques, ateliers d'entrepreneuriat, équipes sportives, théâtre et arts de la scène. Un programme complet pour développer les compétences transversales de nos lycéens.",
+          "La Grande Section prépare activement les enfants à l'entrée au CP : travail en petits groupes sur la conscience phonologique, les premiers chiffres, la vie en collectivité et la gestion de l'autonomie. Un passage de relais en douceur avec l'équipe primaire est organisé en fin d'année.",
       },
     ],
-    cta: "S'inscrire au lycée",
+    cta: "Inscrire mon enfant en maternelle",
   },
   "2": {
     id: "2",
     icon: BookOpen,
     badge: "École Primaire",
     title: "École Primaire & Fondamentale",
-    subtitle: "Du CP au CM2 · Acquisition des fondamentaux",
+    subtitle: "De la 1ère à la 6ème année · Acquisition des fondamentaux",
     tagline: "Les bases solides d'une vie entière d'apprentissage.",
     heroColor: "from-emerald-900 via-emerald-800 to-teal-900",
     accentColor: "emerald",
     overview:
-      "L'école primaire Umurerwa Academy accueille les enfants de 6 à 12 ans dans un cadre sécurisé et stimulant. Notre pédagogie active s'appuie sur des projets interdisciplinaires, des ateliers créatifs et une attention particulière portée au développement socio-émotionnel de chaque enfant. Nous formons des esprits curieux, autonomes et bienveillants.",
+      "L'école primaire Umurerwa School accueille les enfants de 6 à 12 ans dans un cadre sécurisé et stimulant. Notre pédagogie active s'appuie sur des projets interdisciplinaires, des ateliers créatifs et une attention particulière portée au développement socio-émotionnel de chaque enfant. Nous formons des esprits curieux, autonomes et bienveillants.",
     highlights: [
       "Pédagogie active par projets et apprentissage collaboratif",
       "Petits effectifs (max 25 élèves par classe) pour un suivi individuel",
@@ -135,7 +135,7 @@ const articles: Record<string, ProgramArticle> = {
       "Cantine équilibrée et espace de jeux sécurisé",
     ],
     details: {
-      duration: "6 ans (CP à CM2)",
+      duration: "6 ans (1ère à 6ème année)",
       students: "600+ élèves primaires",
       diplomas: ["Certificat de Fin de Primaire (CFP)", "Passage en secondaire"],
       languages: ["Français", "Anglais", "Kirundi"],
@@ -161,46 +161,45 @@ const articles: Record<string, ProgramArticle> = {
   },
   "3": {
     id: "3",
-    icon: Microscope,
-    badge: "Maternelle & Éveil",
-    title: "Maternelle & Éveil de l'Enfance",
-    subtitle: "De 2 à 6 ans · Développement & Socialisation",
-    tagline: "Un espace de tendresse, de jeu et de découverte pour les tout-petits.",
-    heroColor: "from-amber-700 via-amber-800 to-orange-900",
-    accentColor: "amber",
+    icon: Sparkles,
+    badge: "Activités & Périscolaire",
+    title: "Activités & Périscolaire",
+    subtitle: "Ateliers créatifs, sportifs & soutien",
+    tagline: "Cultiver les talents, la créativité et la passion dès l'enfance.",
+    heroColor: "from-blue-900 via-indigo-900 to-violet-900",
+    accentColor: "blue",
     overview:
-      "La maternelle Umurerwa Academy est un espace pensé pour accueillir les enfants de 2 à 6 ans dans les meilleures conditions d'éveil et d'épanouissement. Nos éducatrices spécialisées accompagnent chaque enfant dans son rythme propre, en favorisant le jeu libre, la découverte sensorielle et les premières interactions sociales positives.",
+      "Les activités périscolaires d'Umurerwa School enrichissent le quotidien de nos écoliers : arts plastiques, chorale, club de lecture, sports et initiation numérique adaptée. Un accompagnement aux devoirs est également offert en fin de journée.",
     highlights: [
-      "Encadrantes diplômées en petite enfance et éducation préscolaire",
-      "Espaces de jeux intérieurs et extérieurs sécurisés et stimulants",
-      "Éveil musical, artistique et moteur intégré au quotidien",
-      "Liaison régulière avec les familles (carnets, réunions mensuelles)",
-      "Repas et sieste adaptés à chaque tranche d'âge",
+      "Ateliers artistiques et manuels variés",
+      "Éveil musical et chorale d'école",
+      "Sports d'équipe et motricité",
+      "Étude surveillée et aide aux devoirs",
     ],
     details: {
-      duration: "3 à 4 ans (Petite, Moyenne, Grande section)",
-      students: "200+ tout-petits",
-      diplomas: ["Attestation de Grande Section", "Préparation au CP"],
-      languages: ["Français", "Kirundi", "Initiation Anglais"],
+      duration: "Toute l'année scolaire",
+      students: "Tous les inscrits",
+      diplomas: ["Certificats d'ateliers"],
+      languages: ["Français", "Kirundi", "Anglais"],
     },
     sections: [
       {
-        title: "Notre pédagogie d'éveil",
+        title: "Ateliers d'expression",
         content:
-          "Inspirée des meilleures pratiques Montessori et des pédagogies actives, notre approche place l'enfant au centre de ses apprentissages. Les coins jeux, les ateliers sensoriels et les projets collectifs permettent aux enfants d'apprendre en faisant, à leur propre rythme.",
+          "Dessin, peinture, théâtre d'enfants et contes pour libérer l'expression et développer la confiance.",
       },
       {
-        title: "Développement psychomoteur",
+        title: "Activités physiques",
         content:
-          "Séances de psychomotricité hebdomadaires, parcours moteurs adaptés, ateliers graphisme et pré-écriture, activités de manipulation et de motricité fine. Chaque compétence est travaillée progressivement avec des outils adaptés à l'âge.",
+          "Mini-tournois, parcours moteurs, gymnastique douce et jeux de plein air dans la cour arborée.",
       },
       {
-        title: "Transition vers le primaire",
+        title: "Aide aux devoirs",
         content:
-          "La Grande Section prépare activement les enfants à l'entrée au CP : travail en petits groupes sur la conscience phonologique, les premiers chiffres, la vie en collectivité et la gestion de l'autonomie. Un passage de relais en douceur avec l'équipe primaire est organisé en fin d'année.",
+          "Encadrement par les enseignants titulaires pour consolider les notions vues en classe.",
       },
     ],
-    cta: "Inscrire mon enfant à la maternelle",
+    cta: "Découvrir les activités",
   },
 };
 

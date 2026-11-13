@@ -24,18 +24,18 @@ const Settings = () => {
         setSettings(data);
       } catch {
         setSettings({
-          school_name: "UMURERWA ACADEMY",
-          slogan: "Complexe Scolaire & Universitaire",
-          hero_title: "L'excellence académique de la maternelle à l'université.",
-          hero_description: "Umurerwa Academy offre un parcours d'études complet, rigoureux et moderne. De la petite enfance aux diplômes universitaires, nous formons les leaders et chercheurs de demain.",
-          carousel_img_1: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop",
-          carousel_caption_1: "Campus Universitaire & Recherche",
-          carousel_img_2: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1200&auto=format&fit=crop",
-          carousel_caption_2: "Facultés & Salles d'Amphithéâtre",
-          carousel_img_3: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200&auto=format&fit=crop",
-          carousel_caption_3: "Maternelle, Primaire & Secondaire",
-          carousel_img_4: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200&auto=format&fit=crop",
-          carousel_caption_4: "Laboratoires Informatiques & Innovation",
+          school_name: "UMURERWA SCHOOL",
+          slogan: "École Primaire, Maternelle & Crèche",
+          hero_title: "L'excellence éducative de la crèche à l'école primaire.",
+          hero_description: "Umurerwa School offre un parcours d'éveil et d'apprentissage complet, bienveillant et stimulant. De la crèche au certificat de fin de primaire, nous accompagnons chaque enfant vers l'épanouissement et la réussite.",
+          carousel_img_1: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200&auto=format&fit=crop",
+          carousel_caption_1: "Crèche & Petite Enfance",
+          carousel_img_2: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop",
+          carousel_caption_2: "Maternelle & Éveil Sensoriel",
+          carousel_img_3: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
+          carousel_caption_3: "École Primaire & Fondamentale",
+          carousel_img_4: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200&auto=format&fit=crop",
+          carousel_caption_4: "Ateliers Créatifs & Réussite",
           title_font_size: 52,
           body_font_size: 18,
           primary_color: "#1e3a8a",
@@ -43,7 +43,7 @@ const Settings = () => {
           bg_color: "#f8fafc",
           address: "Bujumbura, Burundi",
           phone: "+257 68 00 00 00",
-          email: "contact@umurerwa-academy.bi",
+          email: "contact@umurerwaschool.bi",
         });
       } finally {
         setLoading(false);
@@ -418,7 +418,7 @@ const Settings = () => {
             <div className="space-y-1">
               <Label className="text-xs font-bold text-slate-700">Texte Copyright & Entité</Label>
               <Input
-                placeholder="Ex: pour Umurerwa Academy"
+                placeholder="Ex: pour Umurerwa School"
                 value={settings.footer_copyright || ""}
                 onChange={e => setSettings({ ...settings, footer_copyright: e.target.value })}
               />

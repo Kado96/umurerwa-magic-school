@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import {
   GraduationCap, Building2, BookOpen, Microscope,
@@ -10,91 +10,109 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsTickerBar from "@/components/NewsTickerBar";
 
+import React, { useEffect } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import {
+  Baby, BookOpen, Heart,
+  CheckCircle2, Clock, Users, Award, Globe,
+  ArrowLeft, ArrowRight, Star, ChevronRight,
+  FlaskConical, Laptop, BookMarked, Trophy, Lightbulb, Sparkles
+} from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import NewsTickerBar from "@/components/NewsTickerBar";
+
 const PROGRAMS: Record<string, any> = {
-  "universite": {
-    icon: GraduationCap,
-    badge: "Enseignement Supérieur",
-    slug: "universite",
-    title: "Université & Facultés d'Umurerwa Academy",
-    subtitle: "Licence · Master · Doctorat",
-    tagline: "Formez-vous aux plus hauts standards académiques, au cœur de l'Afrique.",
-    heroGradient: "from-blue-900 via-blue-800 to-indigo-900",
-    accentBg: "bg-blue-50",
-    accentBorder: "border-blue-200",
-    accentText: "text-blue-900",
-    accentBadge: "bg-blue-100 text-blue-900 font-bold",
-    heroImage: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1600&auto=format&fit=crop",
-    readingTime: "8 min de lecture",
+  "creche": {
+    icon: Baby,
+    badge: "Crèche & Garderie",
+    slug: "creche",
+    title: "Crèche & Garderie d'Umurerwa School",
+    subtitle: "De 3 mois à 2 ans · Petite Enfance",
+    tagline: "Un cocon d'amour, de sécurité et d'éveil pour les tout-petits.",
+    heroGradient: "from-amber-700 via-amber-800 to-orange-900",
+    accentBg: "bg-amber-50",
+    accentBorder: "border-amber-200",
+    accentText: "text-amber-900",
+    accentBadge: "bg-amber-100 text-amber-900 font-bold",
+    heroImage: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1600&auto=format&fit=crop",
+    readingTime: "4 min de lecture",
     publishDate: "Rentrée 2026",
-    details: { duration: "3 à 8 ans", students: "500+ étudiants", diplomas: ["Licence (Bac+3)", "Master (Bac+5)", "Doctorat (Bac+8)"], languages: ["Français", "Anglais", "Kirundi"] },
-    intro: "Umurerwa Academy ouvre les portes de l'enseignement supérieur à une génération de leaders, chercheurs et innovateurs burundais. Notre université propose des formations diplômantes de niveau LMD dans les domaines les plus porteurs.",
+    details: { duration: "Dès 3 mois", students: "60 tout-petits", diplomas: ["Carnet d'éveil personnalisé", "Passage en Maternelle"], languages: ["Français", "Kirundi"] },
+    intro: "La crèche d'Umurerwa School offre aux tout-petits un univers sécurisé, chaleureux et stimulants. Notre personnel soignant et éducatif dévoué veille au bien-être, à la motricité et aux premières découvertes sensorielles de chaque enfant.",
     highlights: [
-      "Formations LMD accréditées par le Ministère de l'Éducation Supérieure du Burundi",
-      "Laboratoires de recherche et ateliers technologiques de pointe",
-      "Partenariats actifs avec des universités européennes et africaines",
-      "Programme d'insertion professionnelle et stage obligatoire en entreprise",
-      "Bibliothèque universitaire avec ressources numériques accessibles 24h/24",
+      "Personnel diplômé en petite enfance, puériculture et premiers secours",
+      "Espaces calmes, dortoirs climatisés et zones de motricité protégées",
+      "Stimulation sensorielle précoce adaptée au rythme de chaque bébé",
+      "Protocoles d'hygiène stricts et suivi de santé quotidien",
+      "Communication quotidienne détaillée avec les parents",
     ],
     sections: [
       {
-        icon: BookMarked,
-        title: "Nos facultés et filières",
+        icon: Heart,
+        title: "Notre approche bienveillante",
         content: [
-          "**Sciences Informatiques & IA** — Développement logiciel, cybersécurité, data science, IA appliquée.",
-          "**Gestion des Entreprises & Finance** — Comptabilité, finance internationale, entrepreneuriat, marketing digital.",
-          "**Droit & Sciences Politiques** — Droit des affaires, droit international, sciences administratives.",
-          "**Sciences de la Santé** — Médecine générale, soins infirmiers, santé publique.",
+          "**Éveil sensoriel et moteur** — Tapis d'éveil, jeux d'encastrement, comptines et stimulation tactile douce.",
+          "**Rythme individuel respecté** — Repas personnalisés, siestes adaptées et attention constante de nos puéricultrices.",
+          "**Sécurité absolue** — Locaux sécurisés, accès contrôlé et matériel adapté aux tout-petits.",
         ]
       },
       {
-        icon: FlaskConical,
-        title: "Recherche & Innovation",
+        icon: Lightbulb,
+        title: "Socialisation précoce",
         content: [
-          "Umurerwa Academy investit massivement dans la recherche appliquée. Chaque faculté dispose de son laboratoire de recherche.",
-          "Notre **incubateur de startups** accompagne les meilleurs projets étudiants de l'idée au financement.",
+          "Les enfants apprennent en douceur la vie en communauté, le partage et la découverte de l'autre sous le regard attentif des éducatrices.",
         ]
       }
     ],
-    cta: "Déposer une demande d'admission",
+    cta: "Inscrire mon bébé à la crèche",
     ctaLink: "/inscription",
-    nextSlug: "lycee",
-    nextTitle: "Lycée & Secondaire",
+    nextSlug: "maternelle",
+    nextTitle: "École Maternelle",
   },
-  "lycee": {
-    icon: Building2,
-    badge: "Lycée & Secondaire",
-    slug: "lycee",
-    title: "Lycée & Enseignement Secondaire",
-    subtitle: "Sections Générales · Techniques · Professionnelles",
-    tagline: "Une préparation solide aux examens d'État et à l'enseignement supérieur.",
-    heroGradient: "from-indigo-900 via-indigo-800 to-violet-900",
-    accentBg: "bg-indigo-50",
-    accentBorder: "border-indigo-200",
-    accentText: "text-indigo-900",
-    accentBadge: "bg-indigo-100 text-indigo-900 font-bold",
-    heroImage: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1600&auto=format&fit=crop",
-    readingTime: "6 min de lecture",
+  "maternelle": {
+    icon: Heart,
+    badge: "École Maternelle",
+    slug: "maternelle",
+    title: "École Maternelle d'Umurerwa School",
+    subtitle: "De 2 à 6 ans · Petite, Moyenne & Grande Section",
+    tagline: "Un espace de tendresse, de jeu et d'apprentissage pour grandir heureux.",
+    heroGradient: "from-rose-800 via-rose-700 to-pink-900",
+    accentBg: "bg-rose-50",
+    accentBorder: "border-rose-200",
+    accentText: "text-rose-900",
+    accentBadge: "bg-rose-100 text-rose-900 font-bold",
+    heroImage: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1600&auto=format&fit=crop",
+    readingTime: "5 min de lecture",
     publishDate: "Rentrée 2026",
-    details: { duration: "4 ans (S1 à S4)", students: "800+ élèves", diplomas: ["Diplôme d'État (Bac)", "Brevet de Technicien"], languages: ["Français", "Anglais", "Kirundi"] },
-    intro: "Le lycée Umurerwa Academy est reconnu pour ses taux d'excellence aux examens nationaux d'État. Nous préparons chaque élève à réussir son baccalauréat.",
+    details: { duration: "3-4 ans (PS, MS, GS)", students: "200+ enfants", diplomas: ["Attestation de Grande Section", "Préparation au CP certifiée"], languages: ["Français", "Kirundi", "Initiation Anglais"] },
+    intro: "La maternelle Umurerwa School est conçue comme un cocon chaleureux où chaque enfant de 2 à 6 ans est accueilli avec bienveillance. Nos éducatrices passionnées favorisent le jeu libre, la découverte sensorielle et l'apprentissage des premières notions.",
     highlights: [
-      "Taux de réussite supérieur à 92% aux examens nationaux d'État",
-      "Laboratoires équipés de chimie, physique, biologie et informatique",
-      "Classes de soutien et tutorat personnalisé par les professeurs",
+      "Encadrantes formées à la pédagogie active et à l'éducation préscolaire",
+      "Espaces de jeux intérieurs et extérieurs sécurisés et très stimulants",
+      "Éveil musical, artistique, corporel et initiation aux lettres et chiffres",
+      "Préparation rigoureuse et rassurante au passage vers le CP",
     ],
     sections: [
       {
-        icon: BookMarked,
-        title: "Sections & filières proposées",
+        icon: Lightbulb,
+        title: "Notre pédagogie d'éveil",
         content: [
-          "**Section Scientifique (S)** — Mathématiques avancées, Sciences Physiques, Chimie.",
-          "**Section Littéraire (L)** — Littérature française, Philosophie, Histoire-Géo.",
-          "**Section Économique (E)** — Gestion, Commerce, Comptabilité, Économie.",
-          "**Section Technique Informatique (TI)** — Développement web, réseaux, bases de données.",
+          "Pédagogie inspirée des approches actives : **Montessori, Reggio Emilia et Decroly**.",
+          "Coins jeux thématiques stimulant l'imagination, le langage et la motricité fine.",
+          "Ateliers quotidiens de graphisme, manipulation mathématique et découverte du monde.",
+        ]
+      },
+      {
+        icon: Heart,
+        title: "Bien-être et socialisation",
+        content: [
+          "Apprentissage de la vie collective, respect des règles, gestion des émotions et entraide.",
+          "Temps calmes, histoires contées et activités motrices en plein air.",
         ]
       }
     ],
-    cta: "S'inscrire au lycée",
+    cta: "Inscrire mon enfant en maternelle",
     ctaLink: "/inscription",
     nextSlug: "primaire",
     nextTitle: "École Primaire",
@@ -103,88 +121,97 @@ const PROGRAMS: Record<string, any> = {
     icon: BookOpen,
     badge: "École Primaire",
     slug: "primaire",
-    title: "École Primaire & Fondamentale",
-    subtitle: "Du CP au CM2 · Acquisition des fondamentaux",
-    tagline: "Les bases solides d'une vie entière d'apprentissage.",
+    title: "École Primaire & Fondamentale d'Umurerwa School",
+    subtitle: "De la 1ère à la 6ème année · Acquisition des fondamentaux",
+    tagline: "Les bases solides d'une vie entière de savoir, de curiosité et de réussite.",
     heroGradient: "from-emerald-900 via-emerald-800 to-teal-900",
     accentBg: "bg-emerald-50",
     accentBorder: "border-emerald-200",
     accentText: "text-emerald-900",
     accentBadge: "bg-emerald-100 text-emerald-900 font-bold",
-    heroImage: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1600&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1600&auto=format&fit=crop",
     readingTime: "5 min de lecture",
     publishDate: "Rentrée 2026",
-    details: { duration: "6 ans (CP à CM2)", students: "600+ élèves", diplomas: ["Certificat de Fin de Primaire (CFP)", "Passage en secondaire garanti"], languages: ["Français", "Anglais", "Kirundi"] },
-    intro: "L'école primaire d'Umurerwa Academy accueille les enfants de 6 à 12 ans dans un environnement bienveillant, stimulant et sécurisé. Notre pédagogie active place l'élève au centre de ses apprentissages.",
+    details: { duration: "6 ans (1ère à 6ème)", students: "600+ élèves", diplomas: ["Certificat de Fin d'Études Primaires", "Passage en Fondamental supérieur"], languages: ["Français", "Anglais", "Kirundi"] },
+    intro: "L'école primaire d'Umurerwa School accueille les enfants de 6 à 12 ans dans un environnement d'apprentissage stimulant, rigoureux et bienveillant. Notre enseignement garantit la maîtrise complète des compétences fondamentales.",
     highlights: [
-      "Pédagogie active par projets et apprentissage collaboratif en petits groupes",
-      "Maximum 25 élèves par classe pour un suivi individualisé",
-      "Enseignement trilingue dès le CP : Français, Anglais, Kirundi",
-      "Bibliothèque primaire de 3 000 ouvrages et accès numérique supervisé",
-      "Cantine avec repas équilibrés et espace de jeux sécurisé",
-      "Bulletins trimestriels détaillés et réunions parents-professeurs régulières",
+      "Programme académique homologué avec un encadrement personnalisé",
+      "Effectifs maîtrisés pour permettre un accompagnement individuel de chaque élève",
+      "Enseignement trilingue dès le primaire : Français, Anglais, Kirundi",
+      "Bibliothèque scolaire riche, salle informatique et ateliers scientifiques",
+      "Cantine équilibrée, cour arborée et activités parascolaires variées",
     ],
     sections: [
       {
         icon: BookMarked,
         title: "Programme académique complet",
         content: [
-          "**Français & Expression écrite** — Lecture courante, expression orale, dictée, rédaction et grammaire.",
-          "**Mathématiques & Logique** — Calcul mental, géométrie, résolution de problèmes.",
-          "**Sciences de l'Observation & Environnement** — Expériences simples, jardinage pédagogique, sorties naturalistes.",
-          "**Histoire & Géographie du Burundi** — Connaissance de son pays et de sa culture.",
+          "**Français & Expression écrite** — Maîtrise de la lecture fluide, dictée, enrichissement du vocabulaire et grammaire structurée.",
+          "**Mathématiques & Logique** — Calcul mental, géométrie pratique, opérations et résolution de problèmes.",
+          "**Sciences & Éveil Technologique** — Découverte de l'environnement, du vivant, expérimentation et initiation à l'informatique.",
+          "**Histoire, Géographie & Citoyenneté** — Découverte du Burundi, ouverture sur le monde et valeurs civiques.",
         ]
       },
       {
         icon: Heart,
-        title: "Développement socio-émotionnel",
+        title: "Épanouissement et valeurs",
         content: [
-          "Ateliers de communication non-violente et médiation entre pairs.",
-          "Projets solidaires réalisés par chaque classe à chaque trimestre.",
+          "Développement de l'autonomie, de la pensée critique et de la confiance en soi.",
+          "Projets coopératifs, théâtre d'école, chorale et activités sportives.",
         ]
       }
     ],
     cta: "Inscrire mon enfant au primaire",
     ctaLink: "/inscription",
-    nextSlug: "maternelle",
-    nextTitle: "Maternelle & Éveil",
+    nextSlug: "activites",
+    nextTitle: "Activités & Périscolaire",
   },
-  "maternelle": {
-    icon: Microscope,
-    badge: "Maternelle & Éveil",
-    slug: "maternelle",
-    title: "Maternelle & Éveil de l'Enfance",
-    subtitle: "De 2 à 6 ans · Développement & Socialisation",
-    tagline: "Un espace de tendresse, de jeu et de découverte pour les tout-petits.",
-    heroGradient: "from-amber-700 via-amber-800 to-orange-900",
-    accentBg: "bg-amber-50",
-    accentBorder: "border-amber-200",
-    accentText: "text-amber-900",
-    accentBadge: "bg-amber-100 text-amber-900 font-bold",
-    heroImage: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1600&auto=format&fit=crop",
-    readingTime: "5 min de lecture",
+  "activites": {
+    icon: Sparkles,
+    badge: "Activités & Périscolaire",
+    slug: "activites",
+    title: "Activités & Périscolaire d'Umurerwa School",
+    subtitle: "Ateliers créatifs, sportifs et soutien scolaire",
+    tagline: "Cultiver les talents, la créativité et la passion dès le plus jeune âge.",
+    heroGradient: "from-blue-900 via-indigo-900 to-violet-900",
+    accentBg: "bg-blue-50",
+    accentBorder: "border-blue-200",
+    accentText: "text-blue-900",
+    accentBadge: "bg-blue-100 text-blue-900 font-bold",
+    heroImage: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1600&auto=format&fit=crop",
+    readingTime: "4 min de lecture",
     publishDate: "Rentrée 2026",
-    details: { duration: "3-4 ans (PS, MS, GS)", students: "200+ tout-petits", diplomas: ["Attestation de Grande Section", "Préparation au CP certifiée"], languages: ["Français", "Kirundi", "Anglais"] },
-    intro: "La maternelle Umurerwa Academy est conçue comme un cocon chaleureux où chaque enfant de 2 à 6 ans est accueilli avec douceur et bienveillance.",
+    details: { duration: "Toute l'année", students: "Tous niveaux", diplomas: ["Certificats d'ateliers", "Médailles sportives"], languages: ["Français", "Anglais", "Kirundi"] },
+    intro: "Au-delà des heures de classe, Umurerwa School propose un programme complet d'activités périscolaires pour permettre à chaque enfant d'explorer ses passions, de bouger et d'apprendre avec enthousiasme.",
     highlights: [
-      "Encadrantes diplômées en éducation préscolaire et petite enfance",
-      "Espaces de jeux intérieurs et extérieurs sécurisés et très stimulants",
-      "Éveil musical, artistique et moteur intégré au quotidien",
+      "Clubs artistiques : peinture, modelage, dessin et arts plastiques",
+      "Éveil musical et chorale d'école pour tous les âges",
+      "Activités physiques : football, mini-basket, athlétisme et gymnastique douce",
+      "Ateliers d'éveil aux contes et club de lecture en bibliothèque",
+      "Aide aux devoirs et études surveillées en fin d'après-midi",
     ],
     sections: [
       {
-        icon: Lightbulb,
-        title: "Notre philosophie d'éveil",
+        icon: Sparkles,
+        title: "Les ateliers artistiques et culturels",
         content: [
-          "Pédagogie inspirée des approches **Montessori, Reggio Emilia et Pikler**.",
-          "Coins jeux thématiques stimulant l'imagination et la motricité.",
+          "**Arts plastiques & Dessin** — Expression créative par la couleur, le découpage et les formes.",
+          "**Musique & Danse** — Rythme, percussion, chants traditionnels et modernes pour développer l'oreille musicale.",
+          "**Théâtre et contes** — Prendre la parole en public, vaincre la timidité et incarner des récits inspirants.",
+        ]
+      },
+      {
+        icon: Trophy,
+        title: "Sport et motricité",
+        content: [
+          "Développement de la coordination motrice, respect des règles du jeu et esprit d'équipe sur des terrains sécurisés.",
         ]
       }
     ],
-    cta: "Inscrire mon enfant à la maternelle",
+    cta: "Découvrir les inscriptions",
     ctaLink: "/inscription",
-    nextSlug: "universite",
-    nextTitle: "Université & Facultés",
+    nextSlug: "creche",
+    nextTitle: "Crèche & Garderie",
   }
 };
 
@@ -298,9 +325,9 @@ const ProgramArticlePage: React.FC = () => {
           </div>
 
           <div className="mt-14 p-8 md:p-10 bg-blue-900 border border-blue-800 rounded-3xl text-white text-center shadow-xl space-y-4">
-            <h3 className="font-display text-2xl md:text-3xl font-bold text-white">Prêt à rejoindre Umurerwa Academy ?</h3>
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-white">Prêt à rejoindre Umurerwa School ?</h3>
             <p className="text-slate-200 text-base max-w-lg mx-auto">
-              Notre équipe pédagogique est disponible pour répondre à toutes vos questions et vous accompagner dans l'inscription.
+              Notre équipe pédagogique est disponible pour répondre à toutes vos questions et vous accompagner dans l'inscription de votre enfant.
             </p>
             <div className="pt-2">
               <Link to={program.ctaLink} className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-blue-950 font-bold text-base px-8 py-4 rounded-2xl shadow-lg transition-all">
