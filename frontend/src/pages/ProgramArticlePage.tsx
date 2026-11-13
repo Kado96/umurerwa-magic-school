@@ -1,22 +1,10 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import {
-  GraduationCap, Building2, BookOpen, Microscope,
-  CheckCircle2, Clock, Users, Award, Globe,
-  ArrowLeft, ArrowRight, Star, ChevronRight,
-  FlaskConical, Laptop, BookMarked, Trophy, Heart, Lightbulb
-} from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import NewsTickerBar from "@/components/NewsTickerBar";
-
-import React, { useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
-import {
   Baby, BookOpen, Heart,
   CheckCircle2, Clock, Users, Award, Globe,
   ArrowLeft, ArrowRight, Star, ChevronRight,
-  FlaskConical, Laptop, BookMarked, Trophy, Lightbulb, Sparkles
+  Laptop, BookMarked, Trophy, Lightbulb, Sparkles
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
