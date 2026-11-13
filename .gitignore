@@ -22,3 +22,24 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# 🔒 SECRETS — NE JAMAIS COMMITER
+.env
+.env.local
+.env.production
+.env.development
+backend/.env
+frontend/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.venv/
+*.sqlite3
+
+# Build
+dist/
+build/
+staticfiles/

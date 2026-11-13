@@ -1,0 +1,14 @@
+# DÉSACTIVÉ — utilise cron-job.org gratuit pour pinger :
+#   https://umurerwa-api.onrender.com/health/
+name: Keep API warm
+
+on:
+  workflow_dispatch:
+
+jobs:
+  ping:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: noop
+        run: echo "disabled"

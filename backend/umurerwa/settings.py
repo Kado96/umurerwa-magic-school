@@ -9,14 +9,12 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = 'django-insecure-=ozy#5)ogk-e0=u48jsvuvc2%lw3b+xsdboht!mp+qg%ot$yz9'
+SECRET_KEY = config('SECRET_KEY', default='django-insecure-=ozy#5)ogk-e0=u48jsvuvc2%lw3b+xsdboht!mp+qg%ot$yz9')
 
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-]
+_allowed_hosts_env = config('ALLOWED_HOSTS', default='localhost,127.0.0.1')
+ALLOWED_HOSTS = [h.strip() for h in _allowed_hosts_env.split(',') if h.strip()]
 
 # CORS Configuration
 CORS_ALLOW_ALL_ORIGINS = True

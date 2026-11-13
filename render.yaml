@@ -1,0 +1,41 @@
+services:
+  - type: web
+    name: umurerwa-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
+    startCommand: gunicorn umurerwa.wsgi:application --bind 0.0.0.0:$PORT
+    healthCheckPath: /health/
+    envVars:
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: ALLOWED_HOSTS
+        value: "umurerwa-api.onrender.com,localhost"
+      - key: CORS_ORIGIN
+        value: "https://umurerwa-magic-school.vercel.app,http://localhost:8080,capacitor://localhost"
+      - key: SUPABASE_URL
+        value: "https://bctmbucpbyfbsliporlx.supabase.co"
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: GMAIL_USER
+        sync: false
+      - key: GMAIL_APP_PASSWORD
+        sync: false
+      - key: SMTP_HOST
+        value: "smtp.gmail.com"
+      - key: SMTP_PORT
+        value: "465"
+      - key: SMTP_SECURE
+        value: "true"
+      - key: NOTIFY_SECRET
+        sync: false
+      - key: SCHOOL_GMAIL_RELAY_URL
+        sync: false
+      - key: SCHOOL_GMAIL_RELAY_SECRET
+        sync: false

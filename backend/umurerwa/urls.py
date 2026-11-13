@@ -13,4 +13,7 @@ urlpatterns = [
     path('api/school/', include("api.school.urls")),
     path('api/core/', include("api.core.urls")),
     path('api-auth/', include('rest_framework.urls')),
+    path('health/', include('api.health.urls')),
+    path('api/notify/', include('api.notify.urls')),
+    path('api/reports/', include('api.reports.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
