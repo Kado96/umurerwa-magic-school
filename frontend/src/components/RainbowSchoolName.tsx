@@ -23,8 +23,8 @@ const RainbowSchoolName: React.FC<RainbowSchoolNameProps> = ({ size = "lg" }) =>
   }, []);
 
   const schoolName = settings?.school_name || "UMURERWA SCHOOL";
-  const slogan = settings?.slogan || "École Primaire, Maternelle & Crèche";
-  const logoUrl = settings?.logo;
+  const slogan = settings?.slogan || "Savoir, Sentir, S'exprimer : VOILÀ TOUTE UNE ÉDUCATION";
+  const logoUrl = settings?.logo || "/logo-umurerwa.jpg";
 
   return (
     <div className="inline-flex items-center gap-3">

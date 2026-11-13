@@ -29,9 +29,9 @@ const Navbar: React.FC = () => {
               <Mail className="w-3.5 h-3.5 text-amber-400" />
               contact@umurerwaschool.bi
             </span>
-            <span className="flex items-center gap-1.5 text-slate-400">
+            <span className="flex items-center gap-1.5 text-slate-300">
               <MapPin className="w-3.5 h-3.5 text-amber-400" />
-              Bujumbura, Burundi
+              Rohero, Bujumbura, Burundi
             </span>
           </div>
           <div className="flex items-center gap-4 text-[11px] font-semibold tracking-wider uppercase text-slate-400">

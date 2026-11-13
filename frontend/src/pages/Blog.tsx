@@ -41,31 +41,31 @@ const BlogPage = () => {
         setArticles([
           { 
             id: "1", 
-            title: "Inauguration du Nouvel Espace d'Éveil Sensoriel & Bibliothèque", 
-            content: "Umurerwa School vient d'inaugurer son nouvel espace d'éveil et de lecture pour les enfants de la crèche et de la maternelle. Un environnement stimulant et coloré pour cultiver la curiosité dès le plus jeune âge.", 
+            title: "Éveil Aquatique & Séances de Natation à Umurerwa School", 
+            content: "Retour sur les moments forts des séances de piscine encadrées pour nos petits et grands à Rohero. L'éveil aquatique favorise la motricité, la confiance en soi et l'épanouissement corporel sous la supervision d'éducateurs qualifiés.", 
             target_role: "ALL", 
-            created_at: new Date().toISOString() 
+            created_at: "2024-08-19T09:00:00Z" 
           },
           { 
             id: "2", 
-            title: "Rentrée Scolaire & Inscriptions Ouvertes 2025-2026", 
-            content: "Les inscriptions pour la Crèche, la Maternelle et l'École Primaire sont ouvertes. Venez découvrir notre équipe passionnée et notre cadre d'apprentissage bienveillant.", 
+            title: "« Savoir, Sentir, S'exprimer : VOILÀ TOUTE UNE ÉDUCATION »", 
+            content: "Dévoilement officiel de notre devise et de notre logo arc-en-ciel renouvelé. Trois piliers au cœur de notre pédagogie : Savoir pour maîtriser les fondamentaux, Sentir pour développer l'intelligence émotionnelle, et S'exprimer avec clarté.", 
             target_role: "ALL", 
-            created_at: new Date().toISOString() 
+            created_at: "2024-05-12T10:30:00Z" 
           },
           { 
             id: "3", 
-            title: "Grande Journée Pédagogique & Fête des Enfants", 
-            content: "Retour en images sur les ateliers artistiques, les représentations de contes et les jeux de motricité réalisés par nos élèves du primaire et de la maternelle.", 
+            title: "Ateliers Créatifs & Éveil Sensoriel pour la Crèche et la Maternelle", 
+            content: "Dans nos locaux sécurisés de Rohero, les tout-petits explorent les formes, les couleurs et les textures grâce à nos dalles didactiques, nos contes bilingues et nos jeux de motricité.", 
             target_role: "ALL", 
-            created_at: new Date().toISOString() 
+            created_at: "2024-08-04T14:00:00Z" 
           },
           { 
             id: "4", 
-            title: "Atelier Jardinage & Découverte de la Nature", 
-            content: "Nos écoliers du primaire ont planté leurs premières pousses dans le jardin potager pédagogique de l'école dans le cadre du projet d'éveil aux sciences du vivant.", 
+            title: "Rentrée Scolaire & Inscriptions Ouvertes à Rohero (Bujumbura)", 
+            content: "Les inscriptions pour la Crèche (Garderie), l'École Maternelle et l'École Primaire sont ouvertes. Venez visiter nos installations et rencontrer notre équipe pédagogique dévouée.", 
             target_role: "ALL", 
-            created_at: new Date().toISOString() 
+            created_at: "2024-09-01T08:00:00Z" 
           }
         ]);
       } finally {

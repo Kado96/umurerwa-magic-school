@@ -186,9 +186,9 @@ class Enrollment(models.Model):
 class SiteSettings(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     school_name = models.CharField(max_length=255, default="UMURERWA SCHOOL")
-    slogan = models.CharField(max_length=255, default="École Primaire, Maternelle & Crèche")
+    slogan = models.CharField(max_length=255, default="Savoir, Sentir, S'exprimer : VOILÀ TOUTE UNE ÉDUCATION")
     hero_title = models.CharField(max_length=255, default="L'excellence éducative de la crèche à l'école primaire.")
-    hero_description = models.TextField(default="Umurerwa School offre un parcours d'éveil et d'apprentissage complet, bienveillant et stimulant. De la crèche au certificat de fin de primaire, nous accompagnons chaque enfant vers l'épanouissement et la réussite.")
+    hero_description = models.TextField(default="Implantée à Rohero (Bujumbura), Umurerwa School offre un parcours d'éveil et d'apprentissage complet, bienveillant et stimulant. De la crèche au certificat de fin de primaire, nous formons les enfants à Savoir, Sentir et S'exprimer avec assurance.")
     
     # 3 Badges d'accueil configurables
     badge_1_text = models.CharField(max_length=100, default="Programme Fondamental Homologué")
@@ -272,11 +272,12 @@ class SiteSettings(models.Model):
     hero_image = models.TextField(null=True, blank=True)
     
     # Contact Info & Pied de Page (Footer)
-    footer_tagline = models.CharField(max_length=255, default="L'éveil, l'apprentissage et l'excellence de la crèche au primaire. 🌟")
+    footer_tagline = models.CharField(max_length=255, default="« Savoir, Sentir, S'exprimer : VOILÀ TOUTE UNE ÉDUCATION » — Rohero, Bujumbura, Burundi")
     footer_copyright = models.CharField(max_length=255, default="pour Umurerwa School")
-    address = models.CharField(max_length=255, default="Bujumbura, Burundi")
+    address = models.CharField(max_length=255, default="Rohero, Bujumbura, Burundi")
     phone = models.CharField(max_length=50, default="+257 68 00 00 00")
     email = models.EmailField(default="contact@umurerwaschool.bi")
+    facebook_url = models.CharField(max_length=255, default="https://www.facebook.com/p/Umurerwa-School-100077402833091/")
 
     def save(self, *args, **kwargs):
         if not self.pk and SiteSettings.objects.exists():

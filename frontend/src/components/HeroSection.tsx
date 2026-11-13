@@ -82,7 +82,11 @@ const HeroSection: React.FC = () => {
           <div className="lg:col-span-6 space-y-6 text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/10 text-blue-900 font-body font-bold text-xs uppercase tracking-wider">
               <Award className="w-4 h-4 text-blue-700" />
-              <span>{settings?.slogan || "École Primaire, Maternelle & Crèche"}</span>
+              <span>{settings?.slogan || "Savoir, Sentir, S'exprimer : VOILÀ TOUTE UNE ÉDUCATION"}</span>
+            </div>
+
+            <div className="text-xs font-semibold uppercase tracking-wider text-amber-700 flex items-center gap-1.5">
+              <span>📍 Rohero, Bujumbura, Burundi</span>
             </div>
 
             <h1 
@@ -98,7 +102,7 @@ const HeroSection: React.FC = () => {
               className="text-slate-600 font-body leading-relaxed"
               style={{ fontSize: settings?.body_font_size ? `${settings.body_font_size}px` : undefined }}
             >
-              {settings?.hero_description || "Umurerwa School offre un parcours d'éveil et d'apprentissage complet, bienveillant et stimulant. De la crèche au certificat de fin de primaire, nous accompagnons chaque enfant vers l'épanouissement et la réussite."}
+              {settings?.hero_description || "Implantée à Rohero (Bujumbura), Umurerwa School offre un parcours d'éveil et d'apprentissage complet, bienveillant et stimulant. De la crèche au certificat de fin de primaire, nous formons les enfants à Savoir, Sentir et S'exprimer avec assurance."}
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
