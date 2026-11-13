@@ -1,10 +1,11 @@
-﻿import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect } from "react";
-import { AuthProvider } from "@/hooks/useAuth";
+import { Capacitor } from "@capacitor/core";
+import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import Index from "./pages/Index";
 import ProgramArticlePage from "./pages/ProgramArticlePage";
 import Login from "./pages/Login";
@@ -60,6 +61,35 @@ import ParentProfile from "@/pages/parent/ParentProfile";
 
 const queryClient = new QueryClient();
 
+// Composant d'aiguillage pour la route racine "/"
+// - Sur ordinateur/Web : Affiche la vitrine officielle de l'école (page d'accueil Index)
+// - Sur application mobile (Capacitor natif) : Oriente directement l'utilisateur vers son espace dédié ou l'écran de connexion
+const HomeRouter = () => {
+  const { user, loading, hasRole } = useAuth();
+  const isNativeMobile = Capacitor.isNativePlatform();
+
+  // Si l'utilisateur est sur l'application mobile native installée (Android / iOS)
+  if (isNativeMobile) {
+    if (loading) {
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-background">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
+        </div>
+      );
+    }
+    if (!user) {
+      return <Navigate to="/login" replace />;
+    }
+    if (hasRole("ADMIN")) return <Navigate to="/admin" replace />;
+    if (hasRole("TEACHER")) return <Navigate to="/teacher" replace />;
+    if (hasRole("PARENT")) return <Navigate to="/parent" replace />;
+    return <Navigate to="/login" replace />;
+  }
+
+  // Sur ordinateur / navigateur web par défaut : toujours atterrir sur la page d'accueil vitrine
+  return <Index />;
+};
+
 // Composant pour l'effet de transition douce entre pages (évite le flash blanc)
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -71,7 +101,7 @@ const AnimatedRoutes = () => {
   return (
     <div key={location.pathname} className="animate-in fade-in duration-300 fill-mode-forwards">
       <Routes location={location}>
-        <Route path="/" element={<Index />} />
+        <Route path="/" element={<HomeRouter />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/programme/:slug" element={<ProgramArticlePage />} />
         <Route path="/inscription" element={<PublicEnrollment />} />

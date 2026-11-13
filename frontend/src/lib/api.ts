@@ -104,7 +104,11 @@ const _fetch = async (url: string, options: RequestInit = {}) => {
   if (!response.ok) {
     if (response.status === 401) {
       localStorage.removeItem("access_token");
-      window.location.href = "/login";
+      // Ne pas rediriger automatiquement vers /login si on est sur la page d'accueil ou page publique
+      const isPublicPath = ["/", "/blog", "/inscription", "/login", "/register"].includes(window.location.pathname) || window.location.pathname.startsWith("/programme/");
+      if (!isPublicPath) {
+        window.location.href = "/login";
+      }
     }
     const errorData = await response.json().catch(() => ({}));
     let message = errorData.detail || errorData.message || errorData.error;
