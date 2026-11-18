@@ -260,6 +260,10 @@ class SiteSettings(models.Model):
     carousel_caption_3 = models.CharField(max_length=150, default="École Primaire & Fondamentale")
     carousel_img_4 = models.TextField(default="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200&auto=format&fit=crop")
     carousel_caption_4 = models.CharField(max_length=150, default="Ateliers Créatifs & Réussite")
+    carousel_img_5 = models.TextField(default="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop", blank=True, null=True)
+    carousel_caption_5 = models.CharField(max_length=150, default="Activités & Éveil", blank=True, null=True)
+    carousel_img_6 = models.TextField(default="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200&auto=format&fit=crop", blank=True, null=True)
+    carousel_caption_6 = models.CharField(max_length=150, default="Épanouissement Scolaire", blank=True, null=True)
 
     # Personnalisation des polices et couleurs
     title_font_size = models.IntegerField(default=52) # Taille de police du titre en px

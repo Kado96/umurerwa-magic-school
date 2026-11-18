@@ -77,28 +77,21 @@ const HeroSection: React.FC = () => {
       .catch(() => {});
   }, []);
 
-  const carouselImages = [
-    {
-      url: settings?.carousel_img_1 || defaultCarouselImages[0].url,
-      caption: settings?.carousel_caption_1 || defaultCarouselImages[0].caption,
-      badge: "Crèche & Garderie"
-    },
-    {
-      url: settings?.carousel_img_2 || defaultCarouselImages[1].url,
-      caption: settings?.carousel_caption_2 || defaultCarouselImages[1].caption,
-      badge: "École Maternelle"
-    },
-    {
-      url: settings?.carousel_img_3 || defaultCarouselImages[2].url,
-      caption: settings?.carousel_caption_3 || defaultCarouselImages[2].caption,
-      badge: "École Primaire"
-    },
-    {
-      url: settings?.carousel_img_4 || defaultCarouselImages[3].url,
-      caption: settings?.carousel_caption_4 || defaultCarouselImages[3].caption,
-      badge: "Activités & Éveil"
+  // Construction dynamique des photos du carrousel à partir de la DB
+  const dynamicCarouselImages = [];
+  for (let i = 1; i <= 6; i++) {
+    const url = settings?.[`carousel_img_${i}`];
+    const caption = settings?.[`carousel_caption_${i}`];
+    if (url && url.trim() !== "") {
+      dynamicCarouselImages.push({
+        url,
+        caption: caption || `Photo ${i}`,
+        badge: i === 1 ? "Crèche & Garderie" : i === 2 ? "École Maternelle" : i === 3 ? "École Primaire" : "Activités & Éveil"
+      });
     }
-  ];
+  }
+
+  const carouselImages = dynamicCarouselImages.length > 0 ? dynamicCarouselImages : defaultCarouselImages;
 
   useEffect(() => {
     const interval = setInterval(() => {

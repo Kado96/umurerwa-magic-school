@@ -1,7 +1,7 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf import settings
-from django.conf.urls.static import static
+from django.views.static import serve
 
 admin.site.site_header = 'UMURERWA MAGIC SCHOOL ADMINISTRATION'
 admin.site.index_title = 'Administration Scolaire'
@@ -16,4 +16,5 @@ urlpatterns = [
     path('health/', include('api.health.urls')),
     path('api/notify/', include('api.notify.urls')),
     path('api/reports/', include('api.reports.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+]

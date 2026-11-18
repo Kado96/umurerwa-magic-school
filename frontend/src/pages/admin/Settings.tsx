@@ -341,48 +341,96 @@ const Settings = () => {
 
       {/* Galerie photos du carrousel */}
       <Card className="border-slate-200 shadow-sm rounded-3xl">
-        <CardHeader>
-          <CardTitle className="font-display text-slate-900 flex items-center gap-2">
-            <ImageIcon className="h-5 w-5 text-blue-900" /> Galerie & Images du Carrousel d'Accueil
-          </CardTitle>
-          <CardDescription>Téléversez directement vos photos depuis votre ordinateur. Elles seront immédiatement enregistrées dans media/ et visibles sur la page d'accueil.</CardDescription>
+        <CardHeader className="flex flex-row items-center justify-between pb-2">
+          <div>
+            <CardTitle className="font-display text-slate-900 flex items-center gap-2">
+              <ImageIcon className="h-5 w-5 text-blue-900" /> Galerie & Images du Carrousel d'Accueil
+            </CardTitle>
+            <CardDescription>Ajoutez, modifiez ou supprimez les photos affichées sur le carrousel de la page d'accueil.</CardDescription>
+          </div>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
-            {[1, 2, 3, 4].map((num) => {
+            {[1, 2, 3, 4, 5, 6].map((num) => {
               const imgKey = `carousel_img_${num}`;
               const capKey = `carousel_caption_${num}`;
               const imgUrl = settings[imgKey];
 
+              // Si les slots 5 et 6 sont vides, on affiche un bouton stylisé pour les activer
+              const isExtraSlot = num > 4;
+              if (isExtraSlot && !imgUrl) {
+                return (
+                  <div key={num} className="p-4 rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50/50 flex flex-col items-center justify-center min-h-[160px] text-center gap-2">
+                    <span className="text-xs font-bold text-slate-500">Emplacement Photo {num} disponible</span>
+                    <label className="inline-flex items-center gap-2 px-4 py-2 bg-blue-900 hover:bg-blue-800 text-white text-xs font-bold rounded-xl cursor-pointer shadow transition">
+                      + Ajouter la photo {num}
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={async (e) => {
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            try {
+                              toast.loading(`Téléversement photo ${num}...`, { id: `up-${num}` });
+                              const res = await uploadMedia(file, "carousel");
+                              const newSettings = { ...settings, [imgKey]: res.url, [capKey]: `Nouvelle Activité ${num}` };
+                              setSettings(newSettings);
+                              await fetchApi("/settings/1/", {
+                                method: "PATCH",
+                                body: JSON.stringify({ [imgKey]: res.url, [capKey]: `Nouvelle Activité ${num}` })
+                              });
+                              toast.success(`Photo ${num} ajoutée avec succès !`, { id: `up-${num}` });
+                            } catch (err: any) {
+                              toast.error("Erreur d'upload", { id: `up-${num}` });
+                            }
+                          }
+                        }}
+                      />
+                    </label>
+                  </div>
+                );
+              }
+
               return (
-                <div key={num} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                <div key={num} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 relative">
                   <div className="flex justify-between items-center">
                     <span className="text-xs font-bold text-blue-900 block">Photo {num} du Carrousel</span>
-                    {imgUrl && (
-                      <span className="text-[10px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-md font-bold">Activité OK</span>
-                    )}
+                    <div className="flex items-center gap-2">
+                      {imgUrl && (
+                        <span className="text-[10px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-md font-bold">Actif sur le site</span>
+                      )}
+                      <button
+                        type="button"
+                        onClick={async () => {
+                          const newSettings = { ...settings, [imgKey]: "" };
+                          setSettings(newSettings);
+                          await fetchApi("/settings/1/", {
+                            method: "PATCH",
+                            body: JSON.stringify({ [imgKey]: "" })
+                          });
+                          toast.info(`Photo ${num} retirée du carrousel`);
+                        }}
+                        className="text-[11px] font-bold text-red-600 hover:text-red-800 bg-red-50 hover:bg-red-100 px-2.5 py-1 rounded-lg transition"
+                      >
+                        🗑️ Supprimer
+                      </button>
+                    </div>
                   </div>
 
                   {/* Zone de prévisualisation + upload */}
                   <div className="flex items-center gap-3">
                     {imgUrl ? (
-                      <div className="relative shrink-0 group">
-                        <img src={imgUrl} alt={`Photo ${num}`} className="h-16 w-24 object-cover rounded-xl border-2 border-blue-200 bg-white shadow-sm" />
-                        <button
-                          type="button"
-                          onClick={async () => {
-                            const newSettings = { ...settings, [imgKey]: "" };
-                            setSettings(newSettings);
-                            await fetchApi("/settings/1/", {
-                              method: "PATCH",
-                              body: JSON.stringify({ [imgKey]: "" })
-                            });
-                            toast.info(`Photo ${num} supprimée`);
+                      <div className="relative shrink-0">
+                        <img 
+                          src={imgUrl} 
+                          alt={`Photo ${num}`} 
+                          className="h-16 w-24 object-cover rounded-xl border-2 border-blue-200 bg-white shadow-sm"
+                          onError={(e: any) => {
+                            e.currentTarget.src = "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200&auto=format&fit=crop";
                           }}
-                          className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center shadow opacity-0 group-hover:opacity-100 transition"
-                          title="Supprimer la photo"
-                        >✕</button>
+                        />
                       </div>
                     ) : (
                       <div className="h-16 w-24 rounded-xl border-2 border-dashed border-slate-300 bg-white flex items-center justify-center shrink-0 text-slate-400">
@@ -392,9 +440,9 @@ const Settings = () => {
 
                     <label className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-3 rounded-xl border border-dashed border-slate-300 bg-white hover:border-blue-400 hover:bg-blue-50 cursor-pointer transition group text-center">
                       <span className="text-xs font-bold text-slate-700 group-hover:text-blue-700">
-                        {imgUrl ? "Changer la photo" : "Téléverser depuis le PC"}
+                        {imgUrl ? "Remplacer cette photo" : "Téléverser depuis le PC"}
                       </span>
-                      <span className="text-[10px] text-slate-400">Stocké dans media/carousel/</span>
+                      <span className="text-[10px] text-slate-400">Cliquez pour choisir un fichier</span>
                       <input
                         type="file"
                         accept="image/*"
