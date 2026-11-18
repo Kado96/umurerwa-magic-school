@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import RainbowSchoolName from "./RainbowSchoolName";
 import { Menu, X, LogIn, Sparkles, Phone, Mail, MapPin } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { fetchApi } from "@/lib/api";
 
 const navItems = [
@@ -16,10 +16,48 @@ const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [settings, setSettings] = useState<any>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     fetchApi("/settings/1/").then(data => setSettings(data)).catch(() => {});
   }, []);
+
+  const handleInscriptionClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!settings) {
+      navigate('/inscription');
+      return;
+    }
+
+    const isOpen = settings.enrollment_open ?? true;
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+    let isPeriodActive = isOpen;
+
+    if (settings.enrollment_start_date) {
+      const start = new Date(settings.enrollment_start_date);
+      if (today < start) {
+        alert(`Les inscriptions ne sont pas encore ouvertes. Elles débuteront le ${start.toLocaleDateString('fr-FR')}.`);
+        return;
+      }
+    }
+
+    if (settings.enrollment_end_date) {
+      const end = new Date(settings.enrollment_end_date);
+      if (today > end) {
+        alert(`La période d'inscription est terminée depuis le ${end.toLocaleDateString('fr-FR')}.`);
+        return;
+      }
+    }
+
+    if (!isPeriodActive) {
+      alert(settings.enrollment_closed_message || "Les inscriptions ne sont pas encore ouvertes pour le moment.");
+      return;
+    }
+
+    navigate('/inscription');
+  };
 
   const phone = settings?.phone || "+257 70 00 00 00";
   const email = settings?.email || "contact@ecoledemo.bi";
@@ -86,13 +124,13 @@ const Navbar: React.FC = () => {
               <LogIn className="w-4 h-4 text-blue-700" />
               <span>Portail Connexion</span>
             </a>
-            <a
-              href="/inscription"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-900 to-indigo-900 hover:from-blue-800 hover:to-indigo-800 text-white font-body font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl transition-all shadow-md hover:shadow-lg border border-blue-800 transform hover:-translate-y-0.5"
+            <button
+              onClick={handleInscriptionClick}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-900 to-indigo-900 hover:from-blue-800 hover:to-indigo-800 text-white font-body font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl transition-all shadow-md hover:shadow-lg border border-blue-800 transform hover:-translate-y-0.5 cursor-pointer"
             >
               <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
-              <span>Postuler en ligne</span>
-            </a>
+              <span>Inscrire mon enfant</span>
+            </button>
           </div>
 
           <div className="lg:hidden flex items-center gap-2">
@@ -125,12 +163,12 @@ const Navbar: React.FC = () => {
               >
                 Portail Connexion
               </a>
-              <a
-                href="/inscription"
-                className="w-full text-center py-3 rounded-xl bg-blue-900 text-white font-body font-bold text-xs uppercase tracking-wider shadow-md"
+              <button
+                onClick={(e) => { setOpen(false); handleInscriptionClick(e); }}
+                className="w-full text-center py-3 rounded-xl bg-blue-900 text-white font-body font-bold text-xs uppercase tracking-wider shadow-md cursor-pointer"
               >
-                Postuler en ligne
-              </a>
+                Inscrire mon enfant
+              </button>
             </div>
           </div>
         )}
