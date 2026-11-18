@@ -278,11 +278,13 @@ const Settings = () => {
               </div>
             </div>
 
+            {/* Email de contact */}
             <div className="pt-2">
               <Label className="text-xs font-bold text-slate-700">Coordonnées de l'établissement</Label>
-              <div className="grid grid-cols-2 gap-3 mt-2">
-                <Input placeholder="Adresse" value={settings.address || ""} onChange={e => setSettings({ ...settings, address: e.target.value })} />
-                <Input placeholder="Téléphone" value={settings.phone || ""} onChange={e => setSettings({ ...settings, phone: e.target.value })} />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-2">
+                <Input placeholder="Adresse (ex: Avenue Démo)" value={settings.address || ""} onChange={e => setSettings({ ...settings, address: e.target.value })} />
+                <Input placeholder="Téléphone (ex: +257 70 00 00 00)" value={settings.phone || ""} onChange={e => setSettings({ ...settings, phone: e.target.value })} />
+                <Input placeholder="Email (ex: contact@ecole.bi)" value={settings.email || ""} onChange={e => setSettings({ ...settings, email: e.target.value })} />
               </div>
             </div>
 

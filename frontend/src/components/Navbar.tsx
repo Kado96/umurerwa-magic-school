@@ -13,7 +13,16 @@ const navItems = [
 
 const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const [settings, setSettings] = useState<any>(null);
   const location = useLocation();
+
+  React.useEffect(() => {
+    fetchApi("/settings/1/").then(data => setSettings(data)).catch(() => {});
+  }, []);
+
+  const phone = settings?.phone || "+257 70 00 00 00";
+  const email = settings?.email || "contact@ecoledemo.bi";
+  const address = settings?.address || "Avenue Démo, Ville Test";
 
   return (
     <header className="sticky top-0 z-50 w-full shadow-sm">
@@ -23,15 +32,15 @@ const Navbar: React.FC = () => {
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5 hover:text-amber-400 transition-colors">
               <Phone className="w-3.5 h-3.5 text-amber-400" />
-              +257 68 00 00 00
+              {phone}
             </span>
             <span className="flex items-center gap-1.5 hover:text-amber-400 transition-colors">
               <Mail className="w-3.5 h-3.5 text-amber-400" />
-              contact@umurerwaschool.bi
+              {email}
             </span>
             <span className="flex items-center gap-1.5 text-slate-300">
               <MapPin className="w-3.5 h-3.5 text-amber-400" />
-              Rohero, Bujumbura, Burundi
+              {address}
             </span>
           </div>
           <div className="flex items-center gap-4 text-[11px] font-semibold tracking-wider uppercase text-slate-400">

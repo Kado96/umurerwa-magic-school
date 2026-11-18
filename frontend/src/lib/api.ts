@@ -38,7 +38,7 @@ export interface Grade {
   score: number;
 }
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = import.meta.env.VITE_API_URL || (typeof window !== "undefined" && window.location.hostname !== "localhost" ? "https://umurerwa-api.onrender.com" : "http://localhost:8000");
 
 /**
  * Appel vers les endpoints de l'API School : /api/school/...

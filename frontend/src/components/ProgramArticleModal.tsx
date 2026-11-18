@@ -40,7 +40,7 @@ const articles: Record<string, ProgramArticle> = {
     heroColor: "from-amber-700 via-amber-800 to-orange-900",
     accentColor: "amber",
     overview:
-      "La crèche d'Umurerwa School est un lieu chaleureux et ultra-sécurisé pensé pour le bien-être et le rythme des nourrissons et tout-petits. Notre personnel formé en puériculture et petite enfance accompagne chaque enfant avec tendresse, douceur et attention personnalisée.",
+      "La crèche de l'établissement est un lieu chaleureux et ultra-sécurisé pensé pour le bien-être et le rythme des nourrissons et tout-petits. Notre personnel formé en puériculture et petite enfance accompagne chaque enfant avec tendresse, douceur et attention personnalisée.",
     highlights: [
       "Éducatrices et puéricultrices diplômées en petite enfance",
       "Dortoirs calmes, climatisés et respectant le rythme de sommeil de chaque bébé",
@@ -83,7 +83,7 @@ const articles: Record<string, ProgramArticle> = {
     heroColor: "from-rose-800 via-rose-700 to-pink-900",
     accentColor: "rose",
     overview:
-      "La maternelle Umurerwa School est un espace pensé pour accueillir les enfants de 2 à 6 ans dans les meilleures conditions d'éveil et d'épanouissement. Nos éducatrices spécialisées accompagnent chaque enfant dans son rythme propre, en favorisant le jeu libre, la découverte sensorielle et les premières interactions sociales positives.",
+      "La maternelle est un espace pensé pour accueillir les enfants de 2 à 6 ans dans les meilleures conditions d'éveil et d'épanouissement. Nos éducatrices spécialisées accompagnent chaque enfant dans son rythme propre, en favorisant le jeu libre, la découverte sensorielle et les premières interactions sociales positives.",
     highlights: [
       "Encadrantes diplômées en petite enfance et éducation préscolaire",
       "Espaces de jeux intérieurs et extérieurs sécurisés et stimulants",
@@ -126,7 +126,7 @@ const articles: Record<string, ProgramArticle> = {
     heroColor: "from-emerald-900 via-emerald-800 to-teal-900",
     accentColor: "emerald",
     overview:
-      "L'école primaire Umurerwa School accueille les enfants de 6 à 12 ans dans un cadre sécurisé et stimulant. Notre pédagogie active s'appuie sur des projets interdisciplinaires, des ateliers créatifs et une attention particulière portée au développement socio-émotionnel de chaque enfant. Nous formons des esprits curieux, autonomes et bienveillants.",
+      "L'école primaire accueille les enfants de 6 à 12 ans dans un cadre sécurisé et stimulant. Notre pédagogie active s'appuie sur des projets interdisciplinaires, des ateliers créatifs et une attention particulière portée au développement socio-émotionnel de chaque enfant. Nous formons des esprits curieux, autonomes et bienveillants.",
     highlights: [
       "Pédagogie active par projets et apprentissage collaboratif",
       "Petits effectifs (max 25 élèves par classe) pour un suivi individuel",
@@ -169,7 +169,7 @@ const articles: Record<string, ProgramArticle> = {
     heroColor: "from-blue-900 via-indigo-900 to-violet-900",
     accentColor: "blue",
     overview:
-      "Les activités périscolaires d'Umurerwa School enrichissent le quotidien de nos écoliers : arts plastiques, chorale, club de lecture, sports et initiation numérique adaptée. Un accompagnement aux devoirs est également offert en fin de journée.",
+      "Les activités périscolaires enrichissent le quotidien de nos écoliers : arts plastiques, chorale, club de lecture, sports et initiation numérique adaptée. Un accompagnement aux devoirs est également offert en fin de journée.",
     highlights: [
       "Ateliers artistiques et manuels variés",
       "Éveil musical et chorale d'école",

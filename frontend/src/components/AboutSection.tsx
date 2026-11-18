@@ -107,7 +107,7 @@ const AboutSection: React.FC = () => {
               {settings?.about_title || "Un cursus adapté à chaque étape de l'enfance"}
             </h2>
             <p className="text-slate-300 font-body text-base md:text-lg max-w-2xl mt-3">
-              {settings?.about_description || "De la crèche à l'école primaire, Umurerwa School met son équipe pédagogique attentionnée et ses infrastructures modernes au service du développement harmonieux de votre enfant."}
+              {settings?.about_description || "Notre établissement met son équipe pédagogique attentionnée et ses infrastructures modernes au service du développement harmonieux et de la réussite de chaque enfant."}
             </p>
           </div>
 

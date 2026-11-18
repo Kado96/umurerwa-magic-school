@@ -10,8 +10,10 @@ const Footer: React.FC = () => {
     fetchApi("/settings/1/").then((data) => setSettings(data)).catch(() => {});
   }, []);
 
-  const tagline = settings?.footer_tagline || "« Savoir, Sentir, S'exprimer : VOILÀ TOUTE UNE ÉDUCATION » — Rohero, Bujumbura, Burundi";
-  const copyright = settings?.footer_copyright || "pour Umurerwa School";
+  const tagline = settings?.footer_tagline || "Plateforme de gestion pour établissements scolaires d'excellence";
+  const copyright = settings?.footer_copyright || "Système de Gestion Scolaire";
+  const address = settings?.address || "Avenue Démo, Ville Test";
+  const facebookUrl = settings?.facebook_url || "";
 
   return (
     <footer className="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
@@ -21,16 +23,20 @@ const Footer: React.FC = () => {
           {tagline}
         </p>
         <div className="flex items-center justify-center gap-4 text-xs text-slate-400">
-          <a 
-            href="https://www.facebook.com/p/Umurerwa-School-100077402833091/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="hover:text-amber-400 transition-colors flex items-center gap-1"
-          >
-            Page Facebook Officielle
-          </a>
-          <span>•</span>
-          <span>Rohero, Bujumbura</span>
+          {facebookUrl && (
+            <>
+              <a 
+                href={facebookUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-amber-400 transition-colors flex items-center gap-1"
+              >
+                Page Facebook Officielle
+              </a>
+              <span>•</span>
+            </>
+          )}
+          <span>{address}</span>
         </div>
         <div className="flex items-center justify-center gap-1.5 font-body text-xs text-slate-500 pt-2">
           <span>Fait avec</span>

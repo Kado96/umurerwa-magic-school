@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
+import { fetchAccountsApi } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -21,17 +22,10 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/api/accounts/login/", {
+      const data = await fetchAccountsApi("/login/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.detail || "Identifiants incorrects");
-      }
 
       // Décoder le payload pour initialiser la session
       const payload = JSON.parse(atob(data.access.split('.')[1]));

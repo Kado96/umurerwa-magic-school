@@ -22,9 +22,9 @@ const RainbowSchoolName: React.FC<RainbowSchoolNameProps> = ({ size = "lg" }) =>
       .catch(() => {});
   }, []);
 
-  const schoolName = settings?.school_name || "UMURERWA SCHOOL";
-  const slogan = settings?.slogan || "Savoir, Sentir, S'exprimer : VOILÀ TOUTE UNE ÉDUCATION";
-  const logoUrl = settings?.logo || "/logo-umurerwa.jpg";
+  const schoolName = settings?.school_name || "ÉCOLE DÉMO";
+  const slogan = settings?.slogan || "Excellence, Rigueur & Innovation Pédagogique";
+  const logoUrl = settings?.logo || "";
 
   return (
     <div className="inline-flex items-center gap-3">

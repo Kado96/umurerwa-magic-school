@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { fetchApi } from "@/lib/api";
 
 const ContactSection: React.FC = () => {
+  const [settings, setSettings] = useState<any>(null);
+
+  useEffect(() => {
+    fetchApi("/settings/1/").then(data => setSettings(data)).catch(() => {});
+  }, []);
+
+  const address = settings?.address || "Avenue Démo, Ville Test";
+  const phone = settings?.phone || "+257 70 00 00 00";
+  const email = settings?.email || "contact@ecoledemo.bi";
+
   return (
     <section id="contact" className="py-16 md:py-24 bg-accent/5">
       <div className="container mx-auto px-4">
@@ -9,7 +20,7 @@ const ContactSection: React.FC = () => {
           Contactez-nous 📬
         </h2>
         <p className="text-center text-muted-foreground font-body text-lg max-w-2xl mx-auto mb-12">
-          Nous serions ravis de vous accueillir ! N'hésitez pas à nous contacter pour toute question.
+          Nous serions ravis de vous accueillir ! N'hésitez pas à nous contacter pour toute question ou inscription.
         </p>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
@@ -21,7 +32,7 @@ const ContactSection: React.FC = () => {
               </div>
               <div>
                 <h3 className="font-display text-lg text-foreground">Adresse</h3>
-                <p className="font-body text-muted-foreground">Bujumbura, Burundi</p>
+                <p className="font-body text-muted-foreground">{address}</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -30,7 +41,7 @@ const ContactSection: React.FC = () => {
               </div>
               <div>
                 <h3 className="font-display text-lg text-foreground">Téléphone</h3>
-                <p className="font-body text-muted-foreground">+257 XX XXX XXX</p>
+                <p className="font-body text-muted-foreground">{phone}</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -39,7 +50,7 @@ const ContactSection: React.FC = () => {
               </div>
               <div>
                 <h3 className="font-display text-lg text-foreground">Email</h3>
-                <p className="font-body text-muted-foreground">info@umurerwaschool.bi</p>
+                <p className="font-body text-muted-foreground">{email}</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
