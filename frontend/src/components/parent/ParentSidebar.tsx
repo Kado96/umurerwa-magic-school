@@ -5,6 +5,7 @@ import {
   Settings, LogOut, CheckCircle, Megaphone, Inbox
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import RainbowSchoolName from "../RainbowSchoolName";
 
 const menuItems = [
   { icon: LayoutDashboard, label: "Tableau de bord", path: "/parent" },
@@ -25,8 +26,8 @@ const ParentSidebar = () => {
   return (
     <aside className="w-64 min-h-screen bg-card border-r border-border flex flex-col">
       <div className="p-4 border-b border-border">
-        <h1 className="font-display text-2xl text-letter-blue animate-bounce-gentle">Umurerwa</h1>
-        <p className="text-xs text-muted-foreground font-body">Espace Parents</p>
+        <RainbowSchoolName size="sm" />
+        <p className="text-xs text-muted-foreground font-body mt-1">Espace Parents</p>
       </div>
       <nav className="flex-1 p-2 space-y-1">
         {menuItems.map((item) => {

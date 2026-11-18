@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RainbowSchoolName from "./RainbowSchoolName";
 import { Menu, X, LogIn, Sparkles, Phone, Mail, MapPin } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { fetchApi } from "@/lib/api";
 
 const navItems = [
   { label: "Accueil", href: "/" },

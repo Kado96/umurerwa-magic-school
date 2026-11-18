@@ -3,9 +3,10 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Capacitor } from "@capacitor/core";
 import { AuthProvider, useAuth } from "@/hooks/useAuth";
+import { fetchApi } from "@/lib/api";
 import Index from "./pages/Index";
 import ProgramArticlePage from "./pages/ProgramArticlePage";
 import Login from "./pages/Login";
@@ -97,6 +98,27 @@ const AnimatedRoutes = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  // Synchronisation dynamique du Titre de l'onglet et du Favicon avec les réglages Admin
+  useEffect(() => {
+    fetchApi("/settings/1/")
+      .then((data: any) => {
+        if (data?.school_name) {
+          const slogan = data.slogan ? ` - ${data.slogan}` : "";
+          document.title = `${data.school_name}${slogan}`;
+        }
+        if (data?.logo) {
+          let link: HTMLLinkElement | null = document.querySelector("link[rel*='icon']");
+          if (!link) {
+            link = document.createElement("link");
+            link.rel = "shortcut icon";
+            document.getElementsByTagName("head")[0].appendChild(link);
+          }
+          link.href = data.logo;
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <div key={location.pathname} className="animate-in fade-in duration-300 fill-mode-forwards">
