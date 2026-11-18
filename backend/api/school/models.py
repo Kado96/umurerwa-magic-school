@@ -272,12 +272,22 @@ class SiteSettings(models.Model):
     hero_image = models.TextField(null=True, blank=True)
     
     # Contact Info & Pied de Page (Footer)
-    footer_tagline = models.CharField(max_length=255, default="« Savoir, Sentir, S'exprimer : VOILÀ TOUTE UNE ÉDUCATION » — Rohero, Bujumbura, Burundi")
-    footer_copyright = models.CharField(max_length=255, default="pour Umurerwa School")
-    address = models.CharField(max_length=255, default="Rohero, Bujumbura, Burundi")
+    footer_tagline = models.CharField(max_length=255, default="« Savoir, Sentir, S'exprimer : VOILÀ TOUTE UNE ÉDUCATION »")
+    footer_copyright = models.CharField(max_length=255, default="Tous droits réservés.")
+    address = models.CharField(max_length=255, default="Bujumbura, Burundi")
     phone = models.CharField(max_length=50, default="+257 68 00 00 00")
-    email = models.EmailField(default="contact@umurerwaschool.bi")
-    facebook_url = models.CharField(max_length=255, default="https://www.facebook.com/p/Umurerwa-School-100077402833091/")
+    email = models.EmailField(default="contact@ecoledemo.bi")
+    facebook_url = models.CharField(max_length=255, default="")
+
+    # Inscriptions scolaires
+    enrollment_open = models.BooleanField(default=True, verbose_name="Inscriptions ouvertes")
+    enrollment_start_date = models.DateField(null=True, blank=True, verbose_name="Date début inscriptions")
+    enrollment_end_date = models.DateField(null=True, blank=True, verbose_name="Date fin inscriptions")
+    enrollment_closed_message = models.CharField(
+        max_length=255, 
+        default="Les inscriptions ne sont pas encore ouvertes pour le moment.",
+        verbose_name="Message si inscriptions fermées"
+    )
 
     def save(self, *args, **kwargs):
         if not self.pk and SiteSettings.objects.exists():

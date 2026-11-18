@@ -711,7 +711,7 @@ class TimetableEntryViewSet(viewsets.ModelViewSet):
 class AnnouncementViewSet(viewsets.ModelViewSet):
     queryset = Announcement.objects.all()
     serializer_class = AnnouncementSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     def get_queryset(self):
         user = self.request.user
@@ -721,6 +721,9 @@ class AnnouncementViewSet(viewsets.ModelViewSet):
         if class_id:
             qs = qs.filter(target_class_id=class_id)
             
+        if not user or not user.is_authenticated:
+            return qs.filter(target_role__in=['ALL', 'PUBLIC', 'PARENT'])
+
         if not user.is_superuser and hasattr(user, 'profile'):
             role = user.profile.role
             if role == 'PARENT':

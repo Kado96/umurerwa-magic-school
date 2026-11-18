@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Award, ArrowRight, BookOpen, Heart, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Award, ArrowRight, BookOpen, Heart, ChevronLeft, ChevronRight, Sparkles, AlertCircle } from "lucide-react";
 import { fetchApi } from "@/lib/api";
 
 const defaultCarouselImages = [
@@ -26,8 +27,49 @@ const defaultCarouselImages = [
 ];
 
 const HeroSection: React.FC = () => {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [settings, setSettings] = useState<any>(null);
+  const [alertMessage, setAlertMessage] = useState<string | null>(null);
+
+  const handleEnrollmentClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!settings) {
+      navigate('/inscription');
+      return;
+    }
+
+    const isOpen = settings.enrollment_open ?? true;
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+    let isPeriodActive = isOpen;
+
+    if (settings.enrollment_start_date) {
+      const start = new Date(settings.enrollment_start_date);
+      if (today < start) {
+        isPeriodActive = false;
+        setAlertMessage(`Les inscriptions ne sont pas encore ouvertes. Elles débuteront le ${start.toLocaleDateString('fr-FR')}.`);
+        return;
+      }
+    }
+
+    if (settings.enrollment_end_date) {
+      const end = new Date(settings.enrollment_end_date);
+      if (today > end) {
+        isPeriodActive = false;
+        setAlertMessage(`La période d'inscription est terminée depuis le ${end.toLocaleDateString('fr-FR')}.`);
+        return;
+      }
+    }
+
+    if (!isPeriodActive) {
+      setAlertMessage(settings.enrollment_closed_message || "Les inscriptions ne sont pas encore ouvertes pour le moment.");
+      return;
+    }
+
+    navigate('/inscription');
+  };
 
   useEffect(() => {
     fetchApi("/settings/1/")
@@ -106,13 +148,13 @@ const HeroSection: React.FC = () => {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a
-                href="/inscription"
-                className="inline-flex items-center gap-3 bg-blue-900 hover:bg-blue-800 text-white font-body font-bold px-8 py-4 rounded-2xl text-base transition-all shadow-md hover:shadow-lg"
+              <button
+                onClick={handleEnrollmentClick}
+                className="inline-flex items-center gap-3 bg-blue-900 hover:bg-blue-800 text-white font-body font-bold px-8 py-4 rounded-2xl text-base transition-all shadow-md hover:shadow-lg cursor-pointer"
                 style={{ backgroundColor: settings?.primary_color || undefined }}
               >
                 Inscrire mon enfant <ArrowRight className="w-5 h-5 text-amber-300" />
-              </a>
+              </button>
               <a
                 href="#apropos"
                 className="inline-flex items-center gap-2 bg-slate-200/80 hover:bg-slate-300/80 text-slate-800 font-body font-bold px-6 py-4 rounded-2xl text-base transition-all"
@@ -120,6 +162,21 @@ const HeroSection: React.FC = () => {
                 Découvrir nos sections
               </a>
             </div>
+
+            {alertMessage && (
+              <div className="mt-4 p-4 rounded-xl bg-amber-50 border border-amber-200 flex items-start gap-3 text-amber-900 shadow-sm animate-in fade-in">
+                <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                <div className="flex-1">
+                  <p className="text-sm font-semibold">{alertMessage}</p>
+                </div>
+                <button 
+                  onClick={() => setAlertMessage(null)}
+                  className="text-xs text-amber-700 hover:text-amber-900 font-bold ml-2 underline"
+                >
+                  Fermer
+                </button>
+              </div>
+            )}
 
             {/* Badges institutionnels */}
             <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200">

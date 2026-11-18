@@ -288,6 +288,53 @@ const Settings = () => {
               </div>
             </div>
 
+            {/* Gestion des Inscriptions Scolaires */}
+            <div className="pt-4 border-t border-slate-100">
+              <Label className="text-xs font-bold text-slate-800 uppercase tracking-wider block mb-2">
+                📅 Période & Statut des Inscriptions
+              </Label>
+              <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3">
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    id="enrollment_open"
+                    checked={settings.enrollment_open ?? true}
+                    onChange={e => setSettings({ ...settings, enrollment_open: e.target.checked })}
+                    className="h-5 w-5 rounded border-slate-300 text-blue-900 focus:ring-blue-900 cursor-pointer"
+                  />
+                  <label htmlFor="enrollment_open" className="text-sm font-semibold text-slate-900 cursor-pointer">
+                    Autoriser les inscriptions des nouveaux élèves
+                  </label>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                  <div className="space-y-1">
+                    <span className="text-[11px] font-medium text-slate-600 block">Date d'ouverture des inscriptions :</span>
+                    <Input 
+                      type="date" 
+                      value={settings.enrollment_start_date || ""} 
+                      onChange={e => setSettings({ ...settings, enrollment_start_date: e.target.value || null })} 
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <span className="text-[11px] font-medium text-slate-600 block">Date limite de clôture :</span>
+                    <Input 
+                      type="date" 
+                      value={settings.enrollment_end_date || ""} 
+                      onChange={e => setSettings({ ...settings, enrollment_end_date: e.target.value || null })} 
+                    />
+                  </div>
+                </div>
+                <div className="space-y-1 pt-1">
+                  <span className="text-[11px] font-medium text-slate-600 block">Message affiché si les inscriptions sont fermées :</span>
+                  <Input 
+                    placeholder="Ex: Les inscriptions ne sont pas encore ouvertes pour le moment." 
+                    value={settings.enrollment_closed_message || ""} 
+                    onChange={e => setSettings({ ...settings, enrollment_closed_message: e.target.value })} 
+                  />
+                </div>
+              </div>
+            </div>
+
           </CardContent>
         </Card>
       </div>
